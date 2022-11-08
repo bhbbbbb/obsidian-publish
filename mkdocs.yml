@@ -1,4 +1,4 @@
-site_name: obsidian-mkdocs template
+site_name: Bhbbbbb's Notes
 
 theme:
     name: 'material'
@@ -26,6 +26,7 @@ theme:
 markdown_extensions:
   - footnotes
   # - attr_list
+  - admonition
   - pymdownx.arithmatex:
       generic: true
   # - pymdownx.superfences
@@ -42,6 +43,7 @@ markdown_extensions:
 
   - toc:
       permalink: true
+      spearator: '+'
 
 plugins:
   - search
