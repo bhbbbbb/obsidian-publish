@@ -8,7 +8,9 @@ window.MathJax = {
     options: {
       ignoreHtmlClass: ".*|",
       processHtmlClass: "arithmatex"
-    }
+    },
+    loader: {load: ['[tex]/braket', '[tex]/mathtools']},
+    tex: {packages: {'[+]': ['braket', 'mathtools']}},
   };
   
   document$.subscribe(() => {
