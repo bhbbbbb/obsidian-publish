@@ -1,5 +1,7 @@
 site_name: Bhbbbbb's Notes
 
+repo_name: bhbbbbb/obsidian-publish
+repo_url: https://github.com/bhbbbbb/obsidian-publish
 theme:
     name: 'material'
     palette:
@@ -25,12 +27,12 @@ theme:
 # Extensions
 markdown_extensions:
   - footnotes
-  # - attr_list
   - admonition
+  # - attr_list
   - pymdownx.arithmatex:
       generic: true
-  # - pymdownx.superfences
-  # - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.details
   # - pymdownx.magiclink
   - pymdownx.tasklist:
       custom_checkbox: true
@@ -44,6 +46,7 @@ markdown_extensions:
   - toc:
       permalink: true
       separator: '+'
+      slugify: !!python/name:pymdownx.slugs.uslugify
 
 plugins:
   - search
