@@ -1,3 +1,6 @@
 .vscode/settings.json
 .obsidian/*
 site
+
+importer.py
+.mdignore
