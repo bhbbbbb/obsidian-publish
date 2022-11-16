@@ -4,8 +4,8 @@
 | ------ | ---------------------------------- |
 | Name   | 林少恩                             |
 | Dept.  | 國立成功大學電機工程學系(~2023-06) | 
-| Email. | smark9005310@gmail.com             |
-| Github | https://github.com/bhbbbbb         |
+| Email. | [smark9005310@gmail.com](mailto:smark9005310@gmail.com)             |
+| Github | [https://github.com/bhbbbbb](https://github.com/bhbbbbb)         |
 
 [![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=bhbbbbb&count_private=true&show_icons=true&theme=transparent)](https://github.com/bhbbbbb)
 
