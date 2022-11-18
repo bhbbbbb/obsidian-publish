@@ -1,0 +1,1873 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-8.5.10" name="generator"/>
+<title>DataCompression - Bhbbbbb's Notes</title>
+<link href="../../assets/stylesheets/main.472b142f.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.08040f6c.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="deep-orange" data-md-color-primary="cyan" data-md-color-scheme="default" dir="ltr">
+<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#source+coding">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Bhbbbbb's Notes" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Bhbbbbb's Notes">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Bhbbbbb's Notes
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              DataCompression
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="deep-orange" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="cyan" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="deep-orange" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="cyan" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/bhbbbbb/obsidian-publish" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    bhbbbbb/obsidian-publish
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Bhbbbbb's Notes" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Bhbbbbb's Notes">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+    Bhbbbbb's Notes
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/bhbbbbb/obsidian-publish" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    bhbbbbb/obsidian-publish
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+        Obsidian Notes
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../About%20Me/">
+        About Me
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../">
+        Data Compression
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Linear_Algebra/">
+        Linear Algebra
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../test/">
+        Test
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6">
+          Control Engineering
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Control Engineering" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+          Control Engineering
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Control%20Engineering/mid1/">
+        Mid1
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Control%20Engineering/mid2/">
+        Mid2
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_3" id="__nav_6_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6_3">
+          Examples
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Examples" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_6_3">
+<span class="md-nav__icon md-icon"></span>
+          Examples
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Control%20Engineering/examples/masion_rule_examples/">
+        Masion rule examples
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7">
+          DBMS
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="DBMS" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+          DBMS
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../DBMS/mid1/">
+        Mid1
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../DBMS/mid2/">
+        Mid2
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" id="__nav_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8">
+          Data Compression
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Data Compression" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
+          Data Compression
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          DataCompression
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        DataCompression
+      </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#source+coding">
+    Source Coding
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#entropy">
+    Entropy
+  </a>
+<nav aria-label="Entropy" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#self-information">
+    Self-Information
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#entropy_1">
+    Entropy
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#gibbs+inequality">
+    Gibbs' Inequality
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#unique+decodable++instantaneous+code">
+    Unique Decodable &amp; Instantaneous Code
+  </a>
+<nav aria-label="Unique Decodable &amp; Instantaneous Code" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#unique+decodable">
+    Unique Decodable
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#instantaneous+code">
+    Instantaneous Code
+  </a>
+<nav aria-label="Instantaneous Code" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#kraft+inequality">
+    Kraft Inequality
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#shannon-fano+coding">
+    Shannon-Fano Coding
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#extension+code">
+    Extension Code
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#adaptive+huffman">
+    Adaptive Huffman
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#jbig++jbig2">
+    JBIG &amp; JBIG2
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#lz">
+    LZ
+  </a>
+<nav aria-label="LZ" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#lz77">
+    LZ77
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#lzss">
+    LZSS
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#lz78">
+    LZ78
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#lzw">
+    LZW
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#lossy">
+    Lossy
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#dm">
+    DM
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#dpcm">
+    DPCM
+  </a>
+<nav aria-label="DPCM" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#predictor+optimization">
+    Predictor Optimization
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#quantizer+optimization">
+    Quantizer Optimization
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#adaptive+dpcm+adpcm">
+    Adaptive DPCM (ADPCM)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#lossless+dpcm">
+    Lossless DPCM
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#non-redundant+sample+coding">
+    Non-Redundant Sample Coding
+  </a>
+<nav aria-label="Non-Redundant Sample Coding" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#polynomial+predictor">
+    Polynomial Predictor
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#polynomial+interpolator">
+    Polynomial Interpolator
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#aztec">
+    AZTEC
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#corner">
+    CORNER
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#btc">
+    BTC
+  </a>
+<nav aria-label="BTC" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#moment-preserving+quantizer">
+    Moment-Preserving Quantizer
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#transform+coding">
+    Transform Coding
+  </a>
+<nav aria-label="Transform Coding" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#threshold+sampling">
+    Threshold Sampling
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#jpeg+encode">
+    JPEG encode
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#dct">
+    DCT
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#vector+quantization">
+    Vector Quantization
+  </a>
+<nav aria-label="Vector Quantization" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#lbg">
+    LBG
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tree-structured+codebooks">
+    Tree-Structured Codebooks
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#product+code">
+    Product Code
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mrvq">
+    M/RVQ
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#irvq">
+    I/RVQ
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#gsvq">
+    G/SVQ
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cvq">
+    CVQ
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#fsvq">
+    FSVQ
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" id="__nav_9" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9">
+          Electromagnetics
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Electromagnetics" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_9">
+<span class="md-nav__icon md-icon"></span>
+          Electromagnetics
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Electromagnetics/Antenna/">
+        Antenna
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Electromagnetics/Boundary%20Value%20Problem/">
+        Boundary Value Problem
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Electromagnetics/EM_Wave/">
+        EM Wave
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Electromagnetics/Electrostatics/">
+        Electrostatics
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Electromagnetics/Magnetostatics/">
+        Magnetostatics
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Electromagnetics/Method%20of%20Images/">
+        Method of Images
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Electromagnetics/Transmission%20Line/">
+        Transmission Line
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Electromagnetics/Vector%20Calculus/">
+        Vector Calculus
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Electromagnetics/Wave%20Guide/">
+        Wave Guide
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" id="__nav_10" type="checkbox"/>
+<label class="md-nav__link" for="__nav_10">
+          Electronics
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Electronics" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_10">
+<span class="md-nav__icon md-icon"></span>
+          Electronics
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Electronics/Feedback/">
+        Feedback
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Electronics/Ouput%20Stage/">
+        Ouput Stage
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" id="__nav_11" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11">
+          Engineering Math
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Engineering Math" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_11">
+<span class="md-nav__icon md-icon"></span>
+          Engineering Math
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Engineering%20Math/1stODE/">
+        1stODE
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Engineering%20Math/Fourier%20Integral/">
+        Fourier Integral
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Engineering%20Math/Fourier%20Series/">
+        Fourier Series
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Engineering%20Math/Fourier%20Transform/">
+        Fourier Transform
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Engineering%20Math/Heat%20Equations/">
+        Heat Equation
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Engineering%20Math/Higher%20Order%20DE/">
+        Higher Order DE
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Engineering%20Math/Laplace%20Transform/">
+        Laplace Transform
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Engineering%20Math/Potential%20Equation/">
+        Potential Equation
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Engineering%20Math/Series%20Solution/">
+        Series Solution
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Engineering%20Math/Special%20Functions/">
+        Special Functions
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Engineering%20Math/Sturm-Liouville%20problem/">
+        Sturm-Liouville problem
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Engineering%20Math/Wave%20Equations/">
+        Wave Equation
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_13" id="__nav_11_13" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_13">
+          Minority
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Minority" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_11_13">
+<span class="md-nav__icon md-icon"></span>
+          Minority
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Engineering%20Math/minority/Homogeneous%20Function/">
+        Homogeneous Function
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Engineering%20Math/minority/IVP/">
+        IVP
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Engineering%20Math/minority/Proof%20to%20Modified%20EE/">
+        Proof to Modified EE
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Engineering%20Math/minority/Step%20Function/">
+        Step Function
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Engineering%20Math/minority/Wronskian/">
+        Wronskian
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Engineering%20Math/minority/proof2/">
+        Proof2
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12" id="__nav_12" type="checkbox"/>
+<label class="md-nav__link" for="__nav_12">
+          Linear Algebra
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Linear Algebra" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_12">
+<span class="md-nav__icon md-icon"></span>
+          Linear Algebra
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Linear%20Algebra/Linear_Algebra/">
+        Linear Algebra
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_13" id="__nav_13" type="checkbox"/>
+<label class="md-nav__link" for="__nav_13">
+          Machine Learning
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Machine Learning" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_13">
+<span class="md-nav__icon md-icon"></span>
+          Machine Learning
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Machine%20Learning/MPPP/">
+        MPPP
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Machine%20Learning/Machine%20Learning/">
+        Machine Learning
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Machine%20Learning/PCA/">
+        PCA
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Machine%20Learning/cheat/">
+        Cheat
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Machine%20Learning/consistency/">
+        Consistency
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Machine%20Learning/pylint/">
+        Pylint
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_14" id="__nav_14" type="checkbox"/>
+<label class="md-nav__link" for="__nav_14">
+          OS
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="OS" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_14">
+<span class="md-nav__icon md-icon"></span>
+          OS
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../OS/Mid1/">
+        Mid1
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../OS/Mid2/">
+        Mid2
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../OS/Mid3/">
+        Mid3
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_15" id="__nav_15" type="checkbox"/>
+<label class="md-nav__link" for="__nav_15">
+          Probability &amp; Statistics
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Probability &amp; Statistics" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_15">
+<span class="md-nav__icon md-icon"></span>
+          Probability &amp; Statistics
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Probability%20%26%20Statistics/Distributions/">
+        Distributions
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Probability%20%26%20Statistics/Mid/">
+        Mid
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#source+coding">
+    Source Coding
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#entropy">
+    Entropy
+  </a>
+<nav aria-label="Entropy" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#self-information">
+    Self-Information
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#entropy_1">
+    Entropy
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#gibbs+inequality">
+    Gibbs' Inequality
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#unique+decodable++instantaneous+code">
+    Unique Decodable &amp; Instantaneous Code
+  </a>
+<nav aria-label="Unique Decodable &amp; Instantaneous Code" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#unique+decodable">
+    Unique Decodable
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#instantaneous+code">
+    Instantaneous Code
+  </a>
+<nav aria-label="Instantaneous Code" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#kraft+inequality">
+    Kraft Inequality
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#shannon-fano+coding">
+    Shannon-Fano Coding
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#extension+code">
+    Extension Code
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#adaptive+huffman">
+    Adaptive Huffman
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#jbig++jbig2">
+    JBIG &amp; JBIG2
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#lz">
+    LZ
+  </a>
+<nav aria-label="LZ" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#lz77">
+    LZ77
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#lzss">
+    LZSS
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#lz78">
+    LZ78
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#lzw">
+    LZW
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#lossy">
+    Lossy
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#dm">
+    DM
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#dpcm">
+    DPCM
+  </a>
+<nav aria-label="DPCM" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#predictor+optimization">
+    Predictor Optimization
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#quantizer+optimization">
+    Quantizer Optimization
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#adaptive+dpcm+adpcm">
+    Adaptive DPCM (ADPCM)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#lossless+dpcm">
+    Lossless DPCM
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#non-redundant+sample+coding">
+    Non-Redundant Sample Coding
+  </a>
+<nav aria-label="Non-Redundant Sample Coding" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#polynomial+predictor">
+    Polynomial Predictor
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#polynomial+interpolator">
+    Polynomial Interpolator
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#aztec">
+    AZTEC
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#corner">
+    CORNER
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#btc">
+    BTC
+  </a>
+<nav aria-label="BTC" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#moment-preserving+quantizer">
+    Moment-Preserving Quantizer
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#transform+coding">
+    Transform Coding
+  </a>
+<nav aria-label="Transform Coding" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#threshold+sampling">
+    Threshold Sampling
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#jpeg+encode">
+    JPEG encode
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#dct">
+    DCT
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#vector+quantization">
+    Vector Quantization
+  </a>
+<nav aria-label="Vector Quantization" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#lbg">
+    LBG
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tree-structured+codebooks">
+    Tree-Structured Codebooks
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#product+code">
+    Product Code
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mrvq">
+    M/RVQ
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#irvq">
+    I/RVQ
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#gsvq">
+    G/SVQ
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cvq">
+    CVQ
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#fsvq">
+    FSVQ
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<a class="md-content__button md-icon" href="https://github.com/bhbbbbb/obsidian-publish/edit/main/docs/Data Compression/DataCompression.md" title="Edit this page">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
+</a>
+<h1>DataCompression</h1>
+<h2 id="source+coding">Source Coding<a class="headerlink" href="#source+coding" title="Permanent link">¶</a></h2>
+<ul>
+<li>Shannon's Source Coding, 信源編碼、符號源編碼</li>
+<li>information mapping (bits, characters, ....)</li>
+</ul>
+<hr/>
+<h2 id="entropy">Entropy<a class="headerlink" href="#entropy" title="Permanent link">¶</a></h2>
+<h3 id="self-information">Self-Information<a class="headerlink" href="#self-information" title="Permanent link">¶</a></h3>
+<ul>
+<li>by three assumptions<ol>
+<li><span class="arithmatex">\(I(p) \ge 0\)</span></li>
+<li><span class="arithmatex">\(I(p_1 \cdot p_2)=I(p_1) + I(p_2)\)</span></li>
+<li><span class="arithmatex">\(I(p)\)</span> is continuous to <span class="arithmatex">\(p\)</span></li>
+</ol>
+</li>
+</ul>
+<p>thus, gives <span class="arithmatex">\(I(p) = -\log(p)\)</span></p>
+<ul>
+<li>proof at p.25</li>
+</ul>
+<h3 id="entropy_1">Entropy<a class="headerlink" href="#entropy_1" title="Permanent link">¶</a></h3>
+<p>Given,</p>
+<div class="arithmatex">\[
+\begin{gather}
+S=\{s_i \,|\, p(s_i) = p_i\}
+\end{gather}
+\]</div>
+<p>then,</p>
+<div class="arithmatex">\[
+\begin{gather}
+H_r(S) = \sum\limits p_i I(s_i)=\sum\limits -p_i\log_r(p_i)
+\end{gather}
+\]</div>
+<ul>
+<li>note that <span class="arithmatex">\(r\)</span> is the base of log</li>
+</ul>
+<h3 id="gibbs+inequality">Gibbs' Inequality<a class="headerlink" href="#gibbs+inequality" title="Permanent link">¶</a></h3>
+<div class="arithmatex">\[
+\begin{gather}
+\sum\limits - p_i\log(p_i) \le \sum\limits-p_i\log(q_i)
+\end{gather}
+\]</div>
+<ul>
+<li>the lower bound of cross entropy of <span class="arithmatex">\(q_i\)</span> and <span class="arithmatex">\(p_i\)</span> are <span class="arithmatex">\(H(p_i)\)</span>.</li>
+</ul>
+<hr/>
+<h2 id="unique+decodable++instantaneous+code">Unique Decodable &amp; Instantaneous Code<a class="headerlink" href="#unique+decodable++instantaneous+code" title="Permanent link">¶</a></h2>
+<ul>
+<li>p32</li>
+</ul>
+<h3 id="unique+decodable">Unique Decodable<a class="headerlink" href="#unique+decodable" title="Permanent link">¶</a></h3>
+<ul>
+<li>not unique decodable example</li>
+</ul>
+<div class="arithmatex">\[
+\begin{gather}
+(s_1, s_2, s_3, s_4) = (0, 01, 11, 00)
+\end{gather}
+\]</div>
+<p>then for the message <span class="arithmatex">\(0011\)</span> could be decoded as</p>
+<div class="arithmatex">\[
+0011 = \left\{
+\begin{align}
+&amp;s_4s_3
+\\
+&amp;s_1s_1s_3
+\end{align}\right.
+\]</div>
+<h3 id="instantaneous+code">Instantaneous Code<a class="headerlink" href="#instantaneous+code" title="Permanent link">¶</a></h3>
+<ul>
+<li>instantaneous <em>iff</em> 沒有一個符號是另一個符號的字首</li>
+<li>instantaneous ⇒ unique</li>
+<li>the lengths of codes have to follow <em>Kraft Inequality</em></li>
+</ul>
+<h4 id="kraft+inequality">Kraft Inequality<a class="headerlink" href="#kraft+inequality" title="Permanent link">¶</a></h4>
+<ul>
+<li>If instantaneous, then the code have to end at leaves.<br/>
+thus, considering binary case only first we cannot build a binary tree for many short path(short coding length).<br/>
+Therefore, in order to build an binary tree, we must follow</li>
+</ul>
+<div class="arithmatex">\[
+\begin{gather}
+\sum\limits \frac{1}{2^{L_i}} \le 1
+\end{gather}
+\]</div>
+<ul>
+<li>
+<p>intuitive thinking – Considering taking a branch of binary tree  have prob. 0.5 and 0.5, then the summation of prob. of all leaves is <span class="arithmatex">\(1\)</span>.</p>
+</li>
+<li>
+<p>intuitively, the lowest bound of average lengths of codes is its entropy. (proof at p36.)</p>
+</li>
+</ul>
+<div class="arithmatex">\[
+\begin{gather}
+H_r(S) \le L_{avg}
+\end{gather}
+\]</div>
+<hr/>
+<h2 id="shannon-fano+coding">Shannon-Fano Coding<a class="headerlink" href="#shannon-fano+coding" title="Permanent link">¶</a></h2>
+<ul>
+<li>Since we know the lower bound of coding length is its entropy, then we can have the coding length (known as <em>Shannon-Fano Length</em>) as</li>
+</ul>
+<div class="arithmatex">\[
+\begin{gather}
+-\log(p_i)\le ℓ_i &lt; -\log(p_i) + 1
+\\\\
+\iff
+ℓ_i = \bigg\lceil -\log(p_i) \bigg\rceil
+\end{gather}
+\]</div>
+<ul>
+<li>drawback example<br/>
+Given <span class="arithmatex">\(S=\{s_1, s_2\}\)</span>, and <span class="arithmatex">\(k\)</span> is large</li>
+</ul>
+<div class="arithmatex">\[
+\begin{gather}
+p_1 = 2^{-k}, \qquad p_2=1-p_1
+\\\\
+\implies l_1 = k, \qquad l_2=1
+\end{gather}
+\]</div>
+<ul>
+<li>in Huffman coding, both <span class="arithmatex">\(l_1, l_2 = 1\)</span>, but since <span class="arithmatex">\(p_1\)</span> is small when <span class="arithmatex">\(k\)</span> is large, this drawback isn't very critical.</li>
+</ul>
+<hr/>
+<h2 id="extension+code">Extension Code<a class="headerlink" href="#extension+code" title="Permanent link">¶</a></h2>
+<ul>
+<li>quick concept – if we have an source code <span class="arithmatex">\(S\)</span>, then we can define an new source code <span class="arithmatex">\(T = S^{n}\)</span> (then the # of symbol in <span class="arithmatex">\(T\)</span> would be <span class="arithmatex">\(|S|^{n}\)</span>) </li>
+<li>The <span class="arithmatex">\(H(T) = nH(S)\)</span>, and denote <span class="arithmatex">\(L_n\)</span>(average length of <span class="arithmatex">\(n\)</span>-order S.F. code), then</li>
+</ul>
+<div class="arithmatex">\[
+\begin{gather}
+H(T) \le L_n &lt; H(T) + 1
+\\\\
+H(S) \le \frac{L_n}{n} &lt; H(S) + \frac{1}{n}
+\end{gather}
+\]</div>
+<p>thus when <span class="arithmatex">\(n\to \infty\)</span>, then <span class="arithmatex">\(\frac{L_n}{n} \to H(S)\)</span>
+<br/>
+aka Shannon's noiseless coding theorem.</p>
+<h2 id="adaptive+huffman">Adaptive Huffman<a class="headerlink" href="#adaptive+huffman" title="Permanent link">¶</a></h2>
+<ol>
+<li>start with one EOF and one ESC (always one in Huffman tree).</li>
+<li>EOF – send when end of file.</li>
+<li>ESC – send when new symbol is added to tree (send following with ascii of that symbol so that decoder can know what to decode).</li>
+</ol>
+<h2 id="jbig++jbig2">JBIG &amp; JBIG2<a class="headerlink" href="#jbig++jbig2" title="Permanent link">¶</a></h2>
+<ul>
+<li>
+<p>code for binary data directly (<span class="arithmatex">\(S \in \{0, 1\}\)</span>)</p>
+</li>
+<li>
+<p><em>JBIG</em> – high order adaptive arithmetic (for <span class="arithmatex">\(P(s_t \,|\, s_{(t-n):(t-1)})\)</span>.</p>
+<ul>
+<li>since the target is binary, the high order coding table would be <span class="arithmatex">\(2^{n}\)</span>, much less than high order Huffman.</li>
+</ul>
+</li>
+<li><em>JBIG2</em> – Define decoding protocol only. That is the encoder side can be any algorithm, even lossy.</li>
+</ul>
+<h2 id="lz">LZ<a class="headerlink" href="#lz" title="Permanent link">¶</a></h2>
+<h3 id="lz77">LZ77<a class="headerlink" href="#lz77" title="Permanent link">¶</a></h3>
+<ul>
+<li><strong>sliding window</strong> and <strong>look-ahead buffer</strong></li>
+<li>find phrase in window, and encode text in look-ahead buffer</li>
+<li>send <code>(displacement, length, next_char)</code></li>
+<li>in no match case, send <code>(0, 0, next_char)</code></li>
+<li>pros<ul>
+<li>fast decode</li>
+</ul>
+</li>
+<li>cons<ul>
+<li>slow encode<ul>
+<li><span class="arithmatex">\(O(n)\)</span>, (<span class="arithmatex">\(n\)</span> is windows size)</li>
+<li><span class="arithmatex">\(O(m)\)</span>, (<span class="arithmatex">\(m\)</span> is look-ahead buffer size)</li>
+</ul>
+</li>
+<li>worst case when no match</li>
+<li>prefer larger window size but cost too much<ul>
+<li>time efficiency ↓</li>
+<li>compressed phrases size ↑</li>
+</ul>
+</li>
+<li>loss memory (after dictionary is full of phrases, some of them have to be removed)</li>
+</ul>
+</li>
+</ul>
+<h3 id="lzss">LZSS<a class="headerlink" href="#lzss" title="Permanent link">¶</a></h3>
+<ul>
+<li>improving version of LZ77</li>
+<li>send <span class="arithmatex">\(1\)</span> bit indicating whether is no match instead of send <code>(0, 0 next_char)</code></li>
+<li></li>
+<li>Circular queue with WINDOW_SIZE = <span class="arithmatex">\(2^{n}\)</span></li>
+<li>Binary Search Tree for storing phrases (actually storing pointer to particular position of window).<ul>
+<li>Node stores fixed-size length</li>
+<li>e.g. (<em>"LZSS is better than LZ77"</em>) with fixed length <span class="arithmatex">\(5\)</span>, (search by comparing char-wise order)</li>
+</ul>
+</li>
+</ul>
+<pre class="mermaid"><code>graph TD
+root(LZSS^)
+l(^is^b)
+ll(^bett)
+lr(is^be)
+r(ZSS^i)
+rl(SS^is)
+rr( )
+rll(S^is^)
+rlr(tter^)
+root --- l
+root --- r
+l --- ll
+l --- lr
+r --- rl
+r --- rr
+rl --- rll
+rl --- rlr</code></pre>
+<h3 id="lz78">LZ78<a class="headerlink" href="#lz78" title="Permanent link">¶</a></h3>
+<ul>
+<li>create new phrase in dictionary at both encoder size and decoder size whenever no match<ol>
+<li>initially, there is only null string in dictionary.</li>
+<li>thus whenever create a new phrase with length <span class="arithmatex">\(n\)</span>, there must exists a phrase with length <span class="arithmatex">\(n-1\)</span>.</li>
+<li>therefore, using <strong>multiway search tree</strong> to store phrases</li>
+</ol>
+</li>
+</ul>
+<p><pre class="mermaid"><code>graph TD
+r('\0' &lt;br&gt; 0)
+p1("'D' &lt;br&gt; 1")
+p2("'A' &lt;br&gt; 2")
+p3("'^' &lt;br&gt; 3")
+p4("'A' &lt;br&gt; 4")
+p5("'^' &lt;br&gt; 5")
+p6("'D' &lt;br&gt; 6")
+p7("'Y' &lt;br&gt; 7")
+p8("'^' &lt;br&gt; 8")
+p9("'O' &lt;br&gt; 9")
+
+r --- p8
+r --- p2
+r --- p1
+p1 --- p3
+p1 --- p4
+p1 --- p7
+p4 --- p5
+p4 --- p6
+p6 --- p9</code></pre>
+- in this case <code>p1 = D</code>, <code>p3 = D^</code>, <code>p5=DA^</code>, and so on...</p>
+<ul>
+<li>example at p119<ul>
+<li>thus encoder side only have to send phrase code (phrase id), without phrase's length.<ul>
+<li>i.e. <code>(phrase_id, next_char)</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>cons<ul>
+<li>slow decoding (have to maintain dictionary tree)</li>
+</ul>
+</li>
+</ul>
+<h3 id="lzw">LZW<a class="headerlink" href="#lzw" title="Permanent link">¶</a></h3>
+<ul>
+<li>improving version LZ78<ul>
+<li>defined every characters as phrases first, then send only <code>(phrase_id, )</code></li>
+</ul>
+</li>
+<li>examples: PNG, ...</li>
+<li>algorithm p122<ul>
+<li>encoder:
+<div class="highlight"><pre><span></span><code><span class="n">i</span><span class="w"> </span><span class="p">:=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"></span>
+<span class="n">Dictionary</span><span class="w"> </span><span class="n">phrases</span><span class="p">;</span><span class="w"></span>
+<span class="kt">string</span><span class="w"> </span><span class="n">in_buff</span><span class="p">;</span><span class="w"></span>
+<span class="n">in_buff</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="w"></span>
+
+<span class="k">while</span><span class="w"></span>
+<span class="w">    </span><span class="n">in_buff</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">str</span><span class="p">[++</span><span class="n">i</span><span class="p">])</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">in_buff</span><span class="w"> </span><span class="n">not</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">phrases</span><span class="w"></span>
+<span class="w">        </span><span class="n">phrases</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">in_buff</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="n">OUTPUT</span><span class="w"> </span><span class="p">&lt;&lt;</span><span class="w"> </span><span class="n">phrases</span><span class="p">.</span><span class="n">IndexOf</span><span class="p">(</span><span class="n">in_buff</span><span class="p">.</span><span class="n">PopLast</span><span class="p">())</span><span class="w"></span>
+<span class="w">        </span><span class="n">in_buff</span><span class="w"> </span><span class="p">:=</span><span class="w"> </span><span class="kt">string</span><span class="p">(</span><span class="n">in_buff</span><span class="p">[-</span><span class="m">1</span><span class="p">])</span><span class="w"></span>
+</code></pre></div></li>
+<li>decoder
+<div class="highlight"><pre><span></span><code><span class="n">i</span><span class="w"> </span><span class="p">:=</span><span class="w"> </span><span class="m">0</span><span class="w"></span>
+<span class="n">Dictionary</span><span class="w"> </span><span class="n">phrases</span><span class="p">;</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="n">in_buff</span><span class="p">;</span><span class="w"></span>
+<span class="kt">string</span><span class="w"> </span><span class="n">last_phrase</span><span class="w"></span>
+
+<span class="c1">// init</span>
+<span class="n">INPUT</span><span class="w"> </span><span class="p">&gt;&gt;</span><span class="w"> </span><span class="n">in_buff</span><span class="w"></span>
+<span class="n">last_phrase</span><span class="w"> </span><span class="p">:=</span><span class="w"> </span><span class="n">phrases</span><span class="p">[</span><span class="n">in_buff</span><span class="p">]</span><span class="w"></span>
+<span class="n">OUTPUT</span><span class="w"> </span><span class="p">&lt;&lt;</span><span class="w"> </span><span class="n">last_phrase</span><span class="w"></span>
+
+<span class="k">while</span><span class="w"> </span><span class="k">true</span><span class="w"></span>
+<span class="w">    </span><span class="n">INPUT</span><span class="w"> </span><span class="p">&gt;&gt;</span><span class="w"> </span><span class="n">in_buff</span><span class="w"></span>
+<span class="w">    </span><span class="n">OUTPUT</span><span class="w"> </span><span class="p">&lt;&lt;</span><span class="w"> </span><span class="n">phrases</span><span class="p">[</span><span class="n">in_buff</span><span class="p">]</span><span class="w"></span>
+<span class="w">    </span><span class="n">phrases</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">last_phrase</span><span class="w"> </span><span class="p">+</span><span class="w"> </span><span class="n">phrases</span><span class="p">[</span><span class="n">in_buff</span><span class="p">][</span><span class="m">0</span><span class="p">])</span><span class="w"></span>
+<span class="w">    </span><span class="n">last_phrase</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">phrase</span><span class="p">[</span><span class="n">in_buff</span><span class="p">]</span><span class="w"></span>
+</code></pre></div></li>
+</ul>
+</li>
+</ul>
+<hr/>
+<h2 id="lossy">Lossy<a class="headerlink" href="#lossy" title="Permanent link">¶</a></h2>
+<ul>
+<li>RMSE (Root Mean Square Error)</li>
+<li>
+<p>SNR (Signal-to-Noise Ratio)</p>
+<div class="arithmatex">\[
+\begin{gather}
+\text{SNR}
+= \frac{E\big[S^{2}\big]}{E\big[(X-\mu)^{2}\big]}
+= \frac{E\big[S^{2}\big]}{\sigma_r^{2}}
+\\\\
+\text{SNR}_{dB}
+= 10\log_{10}{\text{SNR}}
+\end{gather}
+\]</div>
+<ul>
+<li>in 2d media case</li>
+</ul>
+</li>
+</ul>
+<div class="arithmatex">\[
+\begin{gather}
+\text{SNR} = \frac{Q^{2}}{\sigma_r^{2}}
+\end{gather}
+\]</div>
+<p>in which <span class="arithmatex">\(Q = 255\)</span> in 8-bits case.</p>
+<h2 id="dm">DM<a class="headerlink" href="#dm" title="Permanent link">¶</a></h2>
+<ul>
+<li>Delta Modulation</li>
+<li>Adaptive DM (ADM)<ul>
+<li>adaptive for the magnitude of <span class="arithmatex">\(\Delta\)</span></li>
+</ul>
+</li>
+</ul>
+<h2 id="dpcm">DPCM<a class="headerlink" href="#dpcm" title="Permanent link">¶</a></h2>
+<ul>
+<li>Differential Pulse Code Modulation</li>
+</ul>
+<h3 id="predictor+optimization">Predictor Optimization<a class="headerlink" href="#predictor+optimization" title="Permanent link">¶</a></h3>
+<ul>
+<li>objective</li>
+</ul>
+<div class="arithmatex">\[
+\begin{align}
+\hat x_{m}^*
+&amp;= \arg\min_{\hat x_m} \,\sigma_e^{2}
+\\\\
+&amp;= \arg\min_{\hat x_m} E\bigg[(x_m - {\hat x_m})^{2}\bigg]
+\end{align}
+\]</div>
+<p>in which, </p>
+<div class="arithmatex">\[
+\begin{gather}
+\hat x_m = \sum\limits_{i \in [0, m)}{\alpha_i}x_i
+\end{gather}
+\]</div>
+<p>then solve by differentiation, we have</p>
+<div class="arithmatex">\[
+\begin{gather}
+E\big[(x_m-\hat x_m)x_i\big] = 0
+\end{gather}
+\]</div>
+<p>thus</p>
+<div class="arithmatex">\[
+\begin{gather}
+E[x_mx_i] = E[\hat x_m x_i]
+\\\\
+R_{mi} = E[\hat x_m x_i]
+\end{gather}
+\]</div>
+<p>and further when <span class="arithmatex">\(i=m\)</span>,</p>
+<div class="arithmatex">\[
+\begin{gather}
+E\left[x_m^{2}\right]=E\left[\hat x_m x_m\right]
+\\\\
+\implies
+\sigma_e^{2} = E\bigg[(x_m -\hat x_m)^{2}\bigg]=
+\\\\
+E\big[(x_m-\hat x_m)\hat x_m\big]=E\big[x_m^{2}\big] - E\big[\hat x_m^{2}\big]
+\\\\
+\implies \sigma^{2} &lt; E\big[x_m^{2}\big]
+\end{gather}
+\]</div>
+<ul>
+<li>p141</li>
+</ul>
+<h3 id="quantizer+optimization">Quantizer Optimization<a class="headerlink" href="#quantizer+optimization" title="Permanent link">¶</a></h3>
+<ul>
+<li>objective (<span class="arithmatex">\(N\)</span> is number of order of quantizer)</li>
+</ul>
+<div class="arithmatex">\[
+\begin{gather}
+D=\sum\limits_{i \in [0, N)}{\int_{d_i}^{d_{i+1}}p(e)\,(e-r_i)^{2}de}
+\end{gather}
+\]</div>
+<ul>
+<li>p143</li>
+</ul>
+<h3 id="adaptive+dpcm+adpcm">Adaptive DPCM (ADPCM)<a class="headerlink" href="#adaptive+dpcm+adpcm" title="Permanent link">¶</a></h3>
+<ul>
+<li>映射量化器<ul>
+<li><span class="arithmatex">\(e=x_m - \hat x_m\)</span></li>
+<li><span class="arithmatex">\(x_m \in [0, 2^{n})\)</span>, thus normally <span class="arithmatex">\(e \in(-2^{n}, 2^{n})\)</span></li>
+<li>however with known <span class="arithmatex">\(\hat x_m\)</span>, then <span class="arithmatex">\(e \in [-\hat x_m,\, 2^{n} - \hat x_m)\)</span></li>
+</ul>
+</li>
+<li>替換量化器<ul>
+<li>use multi quantizers, and encode with the best quantizer, and send which of quantizers.</li>
+</ul>
+</li>
+</ul>
+<h3 id="lossless+dpcm">Lossless DPCM<a class="headerlink" href="#lossless+dpcm" title="Permanent link">¶</a></h3>
+<ul>
+<li>without quantizers, send the <span class="arithmatex">\(e\)</span> directly (or further using other lossless algorithm).</li>
+<li>thus can be used as preprocessor for others like <em>Huffman</em>, <em>Arith</em>. (since quite popular).</li>
+<li>more efficient then using adaptive like <em>AHuff</em>, <em>AArith</em>, but perform closely.</li>
+</ul>
+<hr/>
+<h2 id="non-redundant+sample+coding">Non-Redundant Sample Coding<a class="headerlink" href="#non-redundant+sample+coding" title="Permanent link">¶</a></h2>
+<ul>
+<li>aka adaptive sampling coding</li>
+</ul>
+<h3 id="polynomial+predictor">Polynomial Predictor<a class="headerlink" href="#polynomial+predictor" title="Permanent link">¶</a></h3>
+<div class="arithmatex">\[
+\begin{gather}
+x_t = x_{t-1} + \Delta x_{t-1}+\Delta^{2}x_{t-1}+\cdots
+\end{gather}
+\]</div>
+<p>in which</p>
+<div class="arithmatex">\[
+\begin{gather}
+\Delta^{2}x_{t-1} = \Delta x_{t-1} - \Delta x_{t-2}
+\end{gather}
+\]</div>
+<h3 id="polynomial+interpolator">Polynomial Interpolator<a class="headerlink" href="#polynomial+interpolator" title="Permanent link">¶</a></h3>
+<ul>
+<li>1次內插法 = 扇形演算法 = SAPA2</li>
+</ul>
+<h3 id="aztec">AZTEC<a class="headerlink" href="#aztec" title="Permanent link">¶</a></h3>
+<ul>
+<li>p173</li>
+<li>rules<ol>
+<li>use horizontal line if <span class="arithmatex">\(\ge 3\)</span> successive samples satisfy <span class="arithmatex">\(x_{max} - x_{min} &lt; \lambda\)</span></li>
+<li>otherwise, use slope. Further, if next sample have the same signed of slope and <span class="arithmatex">\(|x_m - x_{m-1}| &gt; \lambda\)</span>, then keep redundant.</li>
+</ol>
+</li>
+</ul>
+<h3 id="corner">CORNER<a class="headerlink" href="#corner" title="Permanent link">¶</a></h3>
+<ul>
+<li>CORCER &gt; SAPA2 &gt; AZTEC</li>
+<li>algorithm<ol>
+<li>2-order diff, <span class="arithmatex">\(x''(i)=x(i+1)+x(i-1)-2x(i)\)</span></li>
+<li><span class="arithmatex">\(\forall i\)</span>, if <span class="arithmatex">\(x(i) &gt; \lambda_1\)</span> and <span class="arithmatex">\(x''(i)\)</span> is local maximum, then make <span class="arithmatex">\(x(i)\)</span></li>
+<li>then now have redundant samples <span class="arithmatex">\(x(m_1), x(m_2), x(m_3), \dots\)</span></li>
+<li>for all redundant, find if <span class="arithmatex">\(x\left(\frac{m_1+m_2}{2}\right)- \frac{x(m_1)+x(m_2)}{2} &gt; \lambda_2\)</span> (that is, if the <span class="arithmatex">\(x\)</span> very concave (凹))</li>
+<li>if not, add <span class="arithmatex">\(x(\frac{m_1 + m_2}{2})\)</span>, as <span class="arithmatex">\(x(m_{1\_2})\)</span> , and do <span class="arithmatex">\(\big\{x(m_1)\)</span>, <span class="arithmatex">\(x(m_{1\_2})\big\}\)</span> and <span class="arithmatex">\(\big\{x(m_{1\_2}), x(m_2)\big\}\)</span> as step 4.</li>
+<li>if step4. so, continue</li>
+</ol>
+</li>
+</ul>
+<hr/>
+<h2 id="btc">BTC<a class="headerlink" href="#btc" title="Permanent link">¶</a></h2>
+<p>-Block Truncation Coding</p>
+<h3 id="moment-preserving+quantizer">Moment-Preserving Quantizer<a class="headerlink" href="#moment-preserving+quantizer" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>target – find quantizer that make 1st and 2nd moment unchanged, and since</p>
+<div class="arithmatex">\[
+\begin{gather}
+\sigma^{2} = E\big[X^{2}\big] - E\big[X\big]^{2}
+\end{gather}
+\]</div>
+<p>the variance <span class="arithmatex">\(\sigma^{2}\)</span> would also unchanged.</p>
+</li>
+<li>
+<p>solution – Given <span class="arithmatex">\(X_{th}\)</span> as the threshold (normally, mean of all pixels), and <span class="arithmatex">\(q\)</span> is # of <span class="arithmatex">\(b\)</span> cases</p>
+</li>
+</ul>
+<div class="arithmatex">\[
+\hat x_i = 
+\begin{dcases*}
+a &amp; if $x_i &lt; X_{th}$
+\\\\
+b &amp; otherwise
+\end{dcases*}
+\]</div>
+<div class="arithmatex">\[
+\begin{align}
+\\
+E\big[X\big]&amp;=\frac{(m-q)\cdot b+q\cdot a}{m}
+\\\\
+E\big[X^{2}\big]&amp;=\frac{(m-q)\cdot b^{2} + q\cdot a^{2}}{m}
+\end{align}
+\]</div>
+<p>then,</p>
+<div class="arithmatex">\[
+\begin{align}
+a &amp;= E\big[X\big] - \sigma \sqrt{\frac{q}{m-q}}
+\\\\
+a &amp;= E\big[X\big] + \sigma \sqrt{\frac{m-q}{q}}
+\end{align}
+\]</div>
+<ul>
+<li>
+<p>solution2 (Absolute Moment BTC, AMBTC)</p>
+<ul>
+<li>since the square root is hard to compute, thus we maintain the absolute moment instead of 2nd moment.</li>
+</ul>
+<div class="arithmatex">\[
+\begin{gather}
+\alpha=E\bigg[|X_i - \mu|\bigg]
+\end{gather}
+\]</div>
+<p>then, we can have,</p>
+<div class="arithmatex">\[
+\begin{align}
+a &amp;= E[X] - \frac{m\alpha}{2(m-q)}
+\\\\
+b &amp;= E[X] + \frac{m\alpha}{2q}
+\end{align}
+\]</div>
+</li>
+</ul>
+<hr/>
+<h2 id="transform+coding">Transform Coding<a class="headerlink" href="#transform+coding" title="Permanent link">¶</a></h2>
+<ul>
+<li>Rotation Matrix</li>
+</ul>
+<div class="arithmatex">\[
+M(\theta) = 
+\begin{bmatrix}
+\cos\theta &amp; -\sin \theta
+\\
+\sin\theta &amp; \cos \theta
+\end{bmatrix}
+\]</div>
+<p>### Zonal Sampling
+- 區域取樣
+    1. 保留低頻，高頻通常小，不留
+    2. 低頻用比較多 bits
+    3. 固定 bits per block 但讓 variance 大(對其他 blocks 的同位置)的係數有比較多 bits
+- cons
+    - 可能有很大難以忽略的係數</p>
+<h3 id="threshold+sampling">Threshold Sampling<a class="headerlink" href="#threshold+sampling" title="Permanent link">¶</a></h3>
+<ul>
+<li>臨界取樣<ol>
+<li>設 threshold ，以下為 0，以上送位置與值</li>
+</ol>
+</li>
+</ul>
+<h3 id="jpeg+encode">JPEG encode<a class="headerlink" href="#jpeg+encode" title="Permanent link">¶</a></h3>
+<ol>
+<li>get <span class="arithmatex">\(F^{*}(u, v)\)</span></li>
+<li>scan with z order</li>
+<li>First coefficient(DC) encode with DPCM and Huffman.</li>
+<li>encode remains coefficients(AC) with the following law<ol>
+<li>omit <span class="arithmatex">\(0\)</span></li>
+<li>lookup category <span class="arithmatex">\(k\)</span> at p220</li>
+<li>according to category <span class="arithmatex">\(k\)</span> and # of <span class="arithmatex">\(0\)</span> before this coefficient, lookup table in p224.</li>
+<li>append <span class="arithmatex">\(k\)</span> bits which indicates the index of AC coefficient in that category.</li>
+</ol>
+</li>
+</ol>
+<h3 id="dct">DCT<a class="headerlink" href="#dct" title="Permanent link">¶</a></h3>
+<ul>
+<li>p209</li>
+</ul>
+<hr/>
+<h2 id="vector+quantization">Vector Quantization<a class="headerlink" href="#vector+quantization" title="Permanent link">¶</a></h2>
+<ul>
+<li>Cost of encoding <span class="arithmatex">\(O(nN_c)\)</span>, where <span class="arithmatex">\(n\)</span> is dimension of vector, <span class="arithmatex">\(N_c\)</span> is number of codebooks.</li>
+<li>need memory <span class="arithmatex">\(n N_c\)</span></li>
+</ul>
+<h3 id="lbg">LBG<a class="headerlink" href="#lbg" title="Permanent link">¶</a></h3>
+<p>LBG演算法是由Linde,Buzo,Gray三人在1980年提出的。其算法與K-means雷同，根據當前劃分之群集計算誤差量，不斷調整映射區間(Mapping Region)及量化向量之量化點:</p>
+<ol>
+<li>給定訓練樣本以及誤差閾值</li>
+<li>訂定初始碼向量</li>
+<li>將疊代計數器歸零</li>
+<li>計算總誤差值，若不為第一次，則檢查與前一次誤差值差距是否小於閾值。</li>
+<li>根據每一個訓練樣本與碼向量的距離d，找其最小值，定義為映射函數Q</li>
+<li>更新碼向量：將對應到同一個碼向量的全數訓練樣本做平均以更新碼向量。</li>
+</ol>
+<p><img alt="" src="https://miro.medium.com/max/448/1*I2XwN4eMl1R2XzrMRSL_Dw.png"/></p>
+<p>i為疊代計數器，C為該群集之代表，x為資料點，Q(x)為x量化後之群集代表C</p>
+<ol>
+<li>
+<p>疊代計數器加一</p>
+</li>
+<li>
+<p>會到步驟四，直至誤差值小於閥值</p>
+</li>
+</ol>
+<p>LBG演算法十分依賴起始編碼簿，產生起始編碼簿的方法有以下幾種：</p>
+<h3 id="tree-structured+codebooks">Tree-Structured Codebooks<a class="headerlink" href="#tree-structured+codebooks" title="Permanent link">¶</a></h3>
+<ul>
+<li><span class="arithmatex">\(m\)</span>-ways tree</li>
+<li>Cost now decrease to <span class="arithmatex">\(O(n \cdot m\log_m{N_c})\)</span></li>
+<li>Memory increase to <span class="arithmatex">\(n m \frac{N_c - 1}{m - 1}\)</span><ul>
+<li>Because there are <span class="arithmatex">\(N_n=(m + m^{2} + m^{3} +\cdots)\)</span> nodes,<br/>and that <span class="arithmatex">\(N_n = m\frac{m^{\log_m N_c} -1}{m-1}=m\frac{N_c - 1}{m-1}\)</span> </li>
+</ul>
+</li>
+<li>cons<ul>
+<li>perform worse then full-search, since taking branch.</li>
+</ul>
+</li>
+</ul>
+<h3 id="product+code">Product Code<a class="headerlink" href="#product+code" title="Permanent link">¶</a></h3>
+<ul>
+<li>use codebook represent vector direction with size <span class="arithmatex">\(N_1\)</span>, and codebooks represent vector length with size <span class="arithmatex">\(N_2\)</span>.<ul>
+<li>this case, we can represent <span class="arithmatex">\(N_1 N_2\)</span> vectors with only size <span class="arithmatex">\(N_1 + N_2\)</span><ul>
+<li>therefore, in same time complexity and bit rate, perform better the full-search</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="mrvq">M/RVQ<a class="headerlink" href="#mrvq" title="Permanent link">¶</a></h3>
+<ul>
+<li>平均/餘值 VQ<ol>
+<li>對每個 blocks (e.g. <span class="arithmatex">\(n=4\times 4=16\)</span>) 減去平均</li>
+<li>傳送平均 (with DPCM or something)</li>
+<li>do VQ and send</li>
+</ol>
+</li>
+</ul>
+<h3 id="irvq">I/RVQ<a class="headerlink" href="#irvq" title="Permanent link">¶</a></h3>
+<ul>
+<li>內插/餘值 VQ<ol>
+<li>do subsampling to <strong>original</strong> image (assume <span class="arithmatex">\(N\times N\)</span>) and would get sub-image (<span class="arithmatex">\(N/ℓ \times N/ℓ\)</span>, normally <span class="arithmatex">\(ℓ=8\)</span>).</li>
+<li>do up-sampling by interpolation, and get the residual image.</li>
+<li>split residual image to blocks and do VQ.</li>
+</ol>
+</li>
+<li>pros<ul>
+<li>perform better (less blocking artifacts) than M/RVQ.</li>
+</ul>
+</li>
+</ul>
+<h3 id="gsvq">G/SVQ<a class="headerlink" href="#gsvq" title="Permanent link">¶</a></h3>
+<ul>
+<li>Gain/Shape VQ<ul>
+<li>find and send the vector that match the most (has greatest dot product value)</li>
+</ul>
+</li>
+</ul>
+<h3 id="cvq">CVQ<a class="headerlink" href="#cvq" title="Permanent link">¶</a></h3>
+<ul>
+<li>Classification VQ<ol>
+<li>split the image to blocks</li>
+<li>classify blocks to categories</li>
+<li>for every categories, there are some specific codebooks</li>
+</ol>
+</li>
+<li>normally use many small codebooks, but can reach similar performance with the normal VQ using large codebooks.</li>
+</ul>
+<h3 id="fsvq">FSVQ<a class="headerlink" href="#fsvq" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>Finite State VQ</p>
+<ol>
+<li>Given<ul>
+<li>codebooks per state <span class="arithmatex">\(C(s_i)\)</span></li>
+<li>transition function <span class="arithmatex">\(s_i = f(s_{i-1}, Y_{i-1})\)</span></li>
+</ul>
+</li>
+<li>given <span class="arithmatex">\(s_0\)</span>, and find <span class="arithmatex">\(Y_0\)</span> by <span class="arithmatex">\(C(s_0)\)</span></li>
+<li>get <span class="arithmatex">\(s_1 = f(s_0, Y_0)\)</span>, and find <span class="arithmatex">\(Y_1\)</span></li>
+<li>until all done</li>
+</ol>
+</li>
+<li>
+<p>cons</p>
+<ul>
+<li>one connection drop can cause serious consequence.</li>
+</ul>
+</li>
+</ul>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: Mid2" class="md-footer__link md-footer__link--prev" href="../../DBMS/mid2/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Previous
+              </span>
+              Mid2
+            </div>
+</div>
+</a>
+<a aria-label="Next: Antenna" class="md-footer__link md-footer__link--next" href="../../Electromagnetics/Antenna/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Next
+              </span>
+              Antenna
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+<div class="md-social">
+<a class="md-social__link" href="mailto:smark9005310@gmail.com" rel="noopener" target="_blank" title="">
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M498.1 5.6c10.1 7 15.4 19.1 13.5 31.2l-64 416c-1.5 9.7-7.4 18.2-16 23s-18.9 5.4-28 1.6l-126.3-52.5-40.1 74.5c-5.2 9.7-16.3 14.6-27 11.9S192 499 192 488v-96c0-5.3 1.8-10.5 5.1-14.7l165.3-212.6c2.5-7.1-6.5-14.3-13-8.4l-179 161.9-32 28.9c-9.2 8.3-22.3 10.6-33.8 5.8l-85-35.4C8.4 312.8.8 302.2.1 290s5.5-23.7 16.1-29.8l448-256c10.7-6.1 23.9-5.5 34 1.4z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+<script src="../../assets/javascripts/bundle.d6c3db9e.min.js"></script>
+<script src="../../javascripts/mathjax.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</body>
+</html>

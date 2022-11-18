@@ -1,0 +1,1398 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="Smark Lin" name="author"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-8.5.10" name="generator"/>
+<title>Magnetostatics - Bhbbbbb's Notes</title>
+<link href="../../assets/stylesheets/main.472b142f.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.08040f6c.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="deep-orange" data-md-color-primary="cyan" data-md-color-scheme="default" dir="ltr">
+<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#biot-savarts+law">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Bhbbbbb's Notes" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Bhbbbbb's Notes">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Bhbbbbb's Notes
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Magnetostatics
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="deep-orange" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="cyan" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="deep-orange" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="cyan" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/bhbbbbb/obsidian-publish" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    bhbbbbb/obsidian-publish
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Bhbbbbb's Notes" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Bhbbbbb's Notes">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+    Bhbbbbb's Notes
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/bhbbbbb/obsidian-publish" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    bhbbbbb/obsidian-publish
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+        Obsidian Notes
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../About%20Me/">
+        About Me
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Data%20Compression/">
+        Data Compression
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Linear_Algebra/">
+        Linear Algebra
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../test/">
+        Test
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6">
+          Control Engineering
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Control Engineering" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+          Control Engineering
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Control%20Engineering/mid1/">
+        Mid1
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Control%20Engineering/mid2/">
+        Mid2
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_3" id="__nav_6_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6_3">
+          Examples
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Examples" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_6_3">
+<span class="md-nav__icon md-icon"></span>
+          Examples
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Control%20Engineering/examples/masion_rule_examples/">
+        Masion rule examples
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7">
+          DBMS
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="DBMS" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+          DBMS
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../DBMS/mid1/">
+        Mid1
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../DBMS/mid2/">
+        Mid2
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" id="__nav_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8">
+          Data Compression
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Data Compression" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
+          Data Compression
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Data%20Compression/DataCompression/">
+        DataCompression
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" id="__nav_9" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9">
+          Electromagnetics
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Electromagnetics" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_9">
+<span class="md-nav__icon md-icon"></span>
+          Electromagnetics
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Antenna/">
+        Antenna
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Boundary%20Value%20Problem/">
+        Boundary Value Problem
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../EM_Wave/">
+        EM Wave
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Electrostatics/">
+        Electrostatics
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Magnetostatics
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        Magnetostatics
+      </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#biot-savarts+law">
+    Biot-Savart's Law
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#amperes+law">
+    Ampere's Law
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#gauss+law">
+    Gauss' Law
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#faradays+law">
+    Faraday's law
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#magnetic+potentials">
+    Magnetic Potentials
+  </a>
+<nav aria-label="Magnetic Potentials" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#magnetic+scalar+potential">
+    Magnetic Scalar Potential
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#magnetic+vector+potential">
+    Magnetic Vector Potential
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#time-varying+potentials">
+    Time-Varying Potentials
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#magnetic+moment">
+    Magnetic Moment
+  </a>
+<nav aria-label="Magnetic Moment" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#magnetization+current">
+    Magnetization Current
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#permeability">
+    Permeability
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#boundary+condition">
+    Boundary Condition
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#inductance">
+    Inductance
+  </a>
+<nav aria-label="Inductance" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#magnetic+flux+linkage">
+    Magnetic Flux Linkage
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#self+inductance">
+    Self Inductance
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mutual+inductance">
+    Mutual Inductance
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#magnetic+energy">
+    Magnetic Energy
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#magnetic+circuits">
+    Magnetic Circuits
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Method%20of%20Images/">
+        Method of Images
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Transmission%20Line/">
+        Transmission Line
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Vector%20Calculus/">
+        Vector Calculus
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Wave%20Guide/">
+        Wave Guide
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" id="__nav_10" type="checkbox"/>
+<label class="md-nav__link" for="__nav_10">
+          Electronics
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Electronics" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_10">
+<span class="md-nav__icon md-icon"></span>
+          Electronics
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Electronics/Feedback/">
+        Feedback
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Electronics/Ouput%20Stage/">
+        Ouput Stage
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" id="__nav_11" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11">
+          Engineering Math
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Engineering Math" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_11">
+<span class="md-nav__icon md-icon"></span>
+          Engineering Math
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Engineering%20Math/1stODE/">
+        1stODE
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Engineering%20Math/Fourier%20Integral/">
+        Fourier Integral
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Engineering%20Math/Fourier%20Series/">
+        Fourier Series
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Engineering%20Math/Fourier%20Transform/">
+        Fourier Transform
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Engineering%20Math/Heat%20Equations/">
+        Heat Equation
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Engineering%20Math/Higher%20Order%20DE/">
+        Higher Order DE
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Engineering%20Math/Laplace%20Transform/">
+        Laplace Transform
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Engineering%20Math/Potential%20Equation/">
+        Potential Equation
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Engineering%20Math/Series%20Solution/">
+        Series Solution
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Engineering%20Math/Special%20Functions/">
+        Special Functions
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Engineering%20Math/Sturm-Liouville%20problem/">
+        Sturm-Liouville problem
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Engineering%20Math/Wave%20Equations/">
+        Wave Equation
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_13" id="__nav_11_13" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_13">
+          Minority
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Minority" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_11_13">
+<span class="md-nav__icon md-icon"></span>
+          Minority
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Engineering%20Math/minority/Homogeneous%20Function/">
+        Homogeneous Function
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Engineering%20Math/minority/IVP/">
+        IVP
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Engineering%20Math/minority/Proof%20to%20Modified%20EE/">
+        Proof to Modified EE
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Engineering%20Math/minority/Step%20Function/">
+        Step Function
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Engineering%20Math/minority/Wronskian/">
+        Wronskian
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Engineering%20Math/minority/proof2/">
+        Proof2
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12" id="__nav_12" type="checkbox"/>
+<label class="md-nav__link" for="__nav_12">
+          Linear Algebra
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Linear Algebra" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_12">
+<span class="md-nav__icon md-icon"></span>
+          Linear Algebra
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Linear%20Algebra/Linear_Algebra/">
+        Linear Algebra
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_13" id="__nav_13" type="checkbox"/>
+<label class="md-nav__link" for="__nav_13">
+          Machine Learning
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Machine Learning" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_13">
+<span class="md-nav__icon md-icon"></span>
+          Machine Learning
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Machine%20Learning/MPPP/">
+        MPPP
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Machine%20Learning/Machine%20Learning/">
+        Machine Learning
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Machine%20Learning/PCA/">
+        PCA
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Machine%20Learning/cheat/">
+        Cheat
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Machine%20Learning/consistency/">
+        Consistency
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Machine%20Learning/pylint/">
+        Pylint
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_14" id="__nav_14" type="checkbox"/>
+<label class="md-nav__link" for="__nav_14">
+          OS
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="OS" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_14">
+<span class="md-nav__icon md-icon"></span>
+          OS
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../OS/Mid1/">
+        Mid1
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../OS/Mid2/">
+        Mid2
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../OS/Mid3/">
+        Mid3
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_15" id="__nav_15" type="checkbox"/>
+<label class="md-nav__link" for="__nav_15">
+          Probability &amp; Statistics
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Probability &amp; Statistics" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_15">
+<span class="md-nav__icon md-icon"></span>
+          Probability &amp; Statistics
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Probability%20%26%20Statistics/Distributions/">
+        Distributions
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Probability%20%26%20Statistics/Mid/">
+        Mid
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#biot-savarts+law">
+    Biot-Savart's Law
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#amperes+law">
+    Ampere's Law
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#gauss+law">
+    Gauss' Law
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#faradays+law">
+    Faraday's law
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#magnetic+potentials">
+    Magnetic Potentials
+  </a>
+<nav aria-label="Magnetic Potentials" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#magnetic+scalar+potential">
+    Magnetic Scalar Potential
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#magnetic+vector+potential">
+    Magnetic Vector Potential
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#time-varying+potentials">
+    Time-Varying Potentials
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#magnetic+moment">
+    Magnetic Moment
+  </a>
+<nav aria-label="Magnetic Moment" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#magnetization+current">
+    Magnetization Current
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#permeability">
+    Permeability
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#boundary+condition">
+    Boundary Condition
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#inductance">
+    Inductance
+  </a>
+<nav aria-label="Inductance" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#magnetic+flux+linkage">
+    Magnetic Flux Linkage
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#self+inductance">
+    Self Inductance
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mutual+inductance">
+    Mutual Inductance
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#magnetic+energy">
+    Magnetic Energy
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#magnetic+circuits">
+    Magnetic Circuits
+  </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<a class="md-content__button md-icon" href="https://github.com/bhbbbbb/obsidian-publish/edit/main/docs/Electromagnetics/Magnetostatics.md" title="Edit this page">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
+</a>
+<h1>Magnetostatics</h1>
+<h2 id="biot-savarts+law">Biot-Savart's Law<a class="headerlink" href="#biot-savarts+law" title="Permanent link">¶</a></h2>
+<ul>
+<li>Sources</li>
+</ul>
+<div class="arithmatex">\[
+\begin{gather}
+\vec udQ = \frac{d\vec ℓ}{dt}Q = Id\vec ℓ
+\end{gather}
+\]</div>
+<ul>
+<li>Magnetic flux density:</li>
+</ul>
+<div class="arithmatex">\[
+\begin{gather}
+d\vec B = \frac{\mu_o}{4\pi}\frac{Id\vec ℓ \times \hat{a_r}}{R^{2}}
+\end{gather}
+\]</div>
+<ul>
+<li>Magnetic field density:</li>
+</ul>
+<div class="arithmatex">\[
+\begin{gather}
+d\vec H = \frac{d\vec B}{\mu_o}= \frac{1}{4\pi}\frac{Id\vec ℓ \times \hat{a_r}}{R^{2}}
+\end{gather}
+\]</div>
+<ul>
+<li>Magnetic force</li>
+</ul>
+<div class="arithmatex">\[
+\begin{align}
+d\vec F &amp;= 
+Id\vec ℓ \times d\vec B
+\\\\
+&amp;=
+Id\vec ℓ \times \left(\frac{\mu_o}{4\pi}\frac{Id\vec ℓ \times \hat{a_r}}{R^{2}}\right)
+\end{align}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Comparison</p>
+<div class="arithmatex">\[
+\begin{gather}
+d\vec F= q \vec E
+\end{gather}
+\]</div>
+</div>
+<hr/>
+<h2 id="amperes+law">Ampere's Law<a class="headerlink" href="#amperes+law" title="Permanent link">¶</a></h2>
+<ul>
+<li>original Ampere's law 👎</li>
+</ul>
+<div class="arithmatex">\[
+\begin{gather}
+\oint_C{\vec H \cdot d\vec ℓ}=\int_S{\vec J\cdot d\vec S}=I_{enc}
+\\\\
+\nabla \times \vec H=\vec J
+\end{gather}
+\]</div>
+<ul>
+<li>Ampere-Maxwell equation 👍</li>
+</ul>
+<div class="arithmatex">\[
+\begin{gather}
+\oint_C{\vec H \cdot d \vec ℓ} = \int_S{\left(\vec J_f+\frac{\partial \vec D}{\partial t}\right)\cdot d \vec S}
+\\\\
+\nabla \times \vec H =\vec J_f + \frac{\partial \vec D}{\partial t} 
+\end{gather}
+\]</div>
+<details class="- note">
+<summary>displacement current</summary>
+<p>for the identity</p>
+<div class="arithmatex">\[
+\begin{gather}
+\nabla \cdot (\nabla \times \vec H) =0
+\\\\
+\nabla \cdot (\nabla \times \vec H) = \nabla \cdot \vec J \neq 0 \quad\text{ when}\quad\nabla \cdot \vec J=-\frac{\partial \rho_v}{\partial t} \neq 0
+\end{gather}
+\]</div>
+<p>thus, let's write</p>
+<div class="arithmatex">\[
+\begin{gather}
+\nabla \times \vec H = \vec J +\vec J_d
+\end{gather}
+\]</div>
+<p>then</p>
+<div class="arithmatex">\[
+\begin{gather}
+\nabla \cdot (\nabla \times \vec H) = \nabla \cdot \vec J + \nabla \cdot \vec J_d= 0
+\\\\
+\implies \nabla \cdot \vec J_d  = \frac{\partial \rho_v}{\partial t} = \frac{\partial }{\partial t}\left(\nabla \cdot \vec D\right)
+\\\\
+\implies\vec J_d= \frac{\partial \vec D}{\partial t}
+\end{gather}
+\]</div>
+<ul>
+<li>displacement current <span class="arithmatex">\(I_d\)</span>
+&lt;br
+<span class="arithmatex">\(\vec J_d\)</span> is called displacement current density, and the displacement current <span class="arithmatex">\(I_d\)</span> id defined by
+&lt;br</li>
+</ul>
+<div class="arithmatex">\[
+\begin{gather}
+I_d = \int_S{\vec J_d \cdot d\vec S}
+\end{gather}
+\]</div>
+<p>for <span class="arithmatex">\(I_d \neq 0\)</span> whenever there is an accumulation of charges, or the imginary current inside capacitor. 
+&lt;br
+e.g. semi-infinite conductive wire.</p>
+</details>
+<hr/>
+<h2 id="gauss+law">Gauss' Law<a class="headerlink" href="#gauss+law" title="Permanent link">¶</a></h2>
+<div class="arithmatex">\[
+\begin{gather}
+\oint_S{\vec B \cdot d \vec S} = \int_V{\nabla \cdot \vec B}=0
+\end{gather}
+\]</div>
+<p>For it exists <strong>not</strong> isolated magnetic poles, Guass' law here in magnetism is pretty intuitive.</p>
+<hr/>
+<h2 id="faradays+law">Faraday's law<a class="headerlink" href="#faradays+law" title="Permanent link">¶</a></h2>
+<ul>
+<li>static electric field <span class="arithmatex">\(E_e\)</span></li>
+<li>transformer-induced electric field <span class="arithmatex">\(E_T\)</span></li>
+<li>motion-induced electric field <span class="arithmatex">\(E_m\)</span></li>
+<li>induced electric field <span class="arithmatex">\(E_{ind} \equiv E_T +E_m\)</span></li>
+</ul>
+<div class="arithmatex">\[
+\begin{align}
+V_{emf}&amp;=\oint_L (E_e+E_T+E_m)
+\\\\
+&amp;=0+\left(-\int_S{\frac{\partial \vec B}{\partial t}\cdot d\vec S}\right)+\oint_L{\left(\vec u \times \vec B\right)\cdot d\vec ℓ}
+\\\\
+&amp;=-\frac{d}{dt}\int{\vec B \cdot d\vec S}
+\end{align}
+\]</div>
+<ul>
+<li>differential form</li>
+</ul>
+<div class="arithmatex">\[
+\begin{gather}
+\nabla \times \vec E=-\frac{\partial \vec B}{\partial t}+\nabla \times \left(\vec u \times \vec B\right)
+\\\\
+\iff
+\nabla \times \left(\vec E- \vec u \times \vec B\right)=-\frac{\partial \vec B}{\partial t}
+\end{gather}
+\]</div>
+<hr/>
+<h2 id="magnetic+potentials">Magnetic Potentials<a class="headerlink" href="#magnetic+potentials" title="Permanent link">¶</a></h2>
+<h3 id="magnetic+scalar+potential">Magnetic Scalar Potential<a class="headerlink" href="#magnetic+scalar+potential" title="Permanent link">¶</a></h3>
+<ul>
+<li>magnetic scalar potential <span class="arithmatex">\(V_m\)</span> (in <span class="arithmatex">\(A\)</span>)</li>
+</ul>
+<p>Ignoring displacement current <span class="arithmatex">\(\vec J_d\)</span>, if <span class="arithmatex">\(\vec J = 0\)</span>, then</p>
+<div class="arithmatex">\[
+\begin{gather}
+\nabla \times \vec H = 0
+\\\\
+\vec H = - \nabla V_m
+\end{gather}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">comparison</p>
+<div class="arithmatex">\[
+\begin{gather}
+\frac{1}{\varepsilon}\vec D = - \nabla V
+\end{gather}
+\]</div>
+</div>
+<h3 id="magnetic+vector+potential">Magnetic Vector Potential<a class="headerlink" href="#magnetic+vector+potential" title="Permanent link">¶</a></h3>
+<ul>
+<li>magnetic vector potential <span class="arithmatex">\(\vec A\)</span> (Wb/m)</li>
+</ul>
+<p>since </p>
+<div class="arithmatex">\[
+\begin{gather}
+\nabla \cdot \vec B = 0
+\end{gather}
+\]</div>
+<p>and recall the identity</p>
+<div class="arithmatex">\[
+\begin{gather}
+\nabla \cdot \nabla \times \vec A = 0
+\end{gather}
+\]</div>
+<p>then we can write</p>
+<div class="arithmatex">\[
+\begin{gather}
+\vec B = \nabla \times \vec A
+\end{gather}
+\]</div>
+<p>by Stokes' theorem</p>
+<div class="arithmatex">\[
+\begin{gather}
+\psi = \int_S{\vec B \cdot d \vec S}=\int_S{(\nabla \times \vec A)\cdot d\vec S}=\oint_L{\vec A\cdot d \vec ℓ}
+\end{gather}
+\]</div>
+<p>and just remember that</p>
+<div class="arithmatex">\[
+\begin{gather}
+\vec A = \int_Q{\frac{\mu}{4\pi}\frac{\vec udq}{R}}
+\end{gather}
+\]</div>
+<ul>
+<li>line current</li>
+</ul>
+<div class="arithmatex">\[
+\begin{gather}
+\vec udq = I d\vec ℓ
+\end{gather}
+\]</div>
+<ul>
+<li>surface current</li>
+</ul>
+<div class="arithmatex">\[
+\begin{gather}
+\vec udq = \vec K dS
+\end{gather}
+\]</div>
+<ul>
+<li>volume current</li>
+</ul>
+<div class="arithmatex">\[
+\begin{gather}
+\vec udq = \vec J dv
+\end{gather}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Comparison</p>
+<div class="arithmatex">\[
+\begin{gather}
+V=\int_Q{\frac{1}{4\pi \varepsilon}\frac{dq}{R}}
+\end{gather}
+\]</div>
+</div>
+<hr/>
+<h3 id="time-varying+potentials">Time-Varying Potentials<a class="headerlink" href="#time-varying+potentials" title="Permanent link">¶</a></h3>
+<details class="- note">
+<summary>Easy but tedious derivation</summary>
+<ol>
+<li><span class="arithmatex">\(\nabla \times \vec E\)</span></li>
+</ol>
+<div class="arithmatex">\[
+\begin{gather}
+\nabla \times \vec E = -\frac{\partial \left(\nabla \times \vec A\right)}{\partial t}=-\nabla \times \frac{\partial \vec A}{\partial t}
+\\\\
+\implies
+\nabla \times \left(\vec E + \frac{\partial \vec A }{\partial t}\right)=0
+\iff
+\nabla \times \left(-\nabla V\right)=0
+\\\\
+\implies \vec E = -\frac{\partial \vec A}{\partial t}-\nabla V
+\end{gather}
+\]</div>
+<ol>
+<li><span class="arithmatex">\(\nabla \cdot \vec D\)</span></li>
+</ol>
+<div class="arithmatex">\[
+\begin{gather}
+\nabla \cdot \vec E= \frac{\rho_v}{\varepsilon}
+\\\\
+\implies
+\nabla^{2}V  +\frac{\partial }{\partial t}\left(\nabla \cdot \vec A\right) =-\frac{\rho_v}{\varepsilon}
+\end{gather}
+\]</div>
+<ol>
+<li><span class="arithmatex">\(\nabla \times \vec H\)</span></li>
+</ol>
+<div class="arithmatex">\[
+\begin{gather}
+\nabla \times \vec H= \vec J + \varepsilon\frac{\partial \vec E}{\partial t}
+\\\\
+\nabla \times \left(\frac{\nabla \times A}{\mu}\right)= \vec J + \varepsilon\frac{\partial \vec E}{\partial t}
+\\\\
+\nabla^{2}\vec A=\nabla \left(\nabla \cdot \vec A\right)-\nabla \times \nabla \times \vec A
+\\\\
+\nabla^{2}\vec A = \nabla \left(\nabla \cdot \vec A\right)-\mu \vec J - \mu\varepsilon \frac{\partial \vec E}{\partial t}
+\\\\
+\nabla^{2}\vec A - \nabla \left(\nabla \cdot \vec A\right)=-\mu \vec J + \mu\varepsilon\nabla \left(\frac{\partial V}{\partial t}\right) +\mu\varepsilon \frac{\partial ^{2}\vec A}{\partial t^{2}}
+\end{gather}
+\]</div>
+</details>
+<ol>
+<li>coupled equations for <span class="arithmatex">\(V\)</span> and <span class="arithmatex">\(\vec A\)</span>, (normally given <span class="arithmatex">\(\rho_v\)</span> and <span class="arithmatex">\(\vec J\)</span>)</li>
+</ol>
+<div class="arithmatex">\[
+\left\{
+\begin{align}
+&amp;\nabla^{2}V  +\frac{\partial }{\partial t}\left(\nabla \cdot \vec A\right) =-\frac{\rho_v}{\varepsilon}
+\\\\
+&amp;\nabla^{2}\vec A - \nabla \left(\nabla \cdot \vec A\right)=-\mu \vec J + \mu\varepsilon\nabla \left(\frac{\partial V}{\partial t}\right) +\mu\varepsilon \frac{\partial ^{2}\vec A}{\partial t^{2}}
+\end{align}\right.
+\]</div>
+<ol>
+<li>decoupling: Lorenz condition<br/>
+eliminate <span class="arithmatex">\(\mu\varepsilon\nabla (\frac{\partial }{\partial t}V)\)</span> term, by let</li>
+</ol>
+<div class="arithmatex">\[
+\begin{gather}
+\nabla \cdot \vec A=-\mu\varepsilon \frac{\partial V}{\partial t}
+\end{gather}
+\]</div>
+<ol>
+<li>Coulomb condition<br/>
+let </li>
+</ol>
+<div class="arithmatex">\[
+\begin{gather}
+\nabla \cdot \vec A = 0
+\end{gather}
+\]</div>
+<hr/>
+<h2 id="magnetic+moment">Magnetic Moment<a class="headerlink" href="#magnetic+moment" title="Permanent link">¶</a></h2>
+<ul>
+<li>magnetic dipole</li>
+</ul>
+<div class="arithmatex">\[
+\begin{gather}
+\vec m = I_b\, \vec S
+\end{gather}
+\]</div>
+<ul>
+<li>magnetization vector</li>
+</ul>
+<div class="arithmatex">\[
+\begin{gather}
+\vec M = \lim_{\Delta v \to 0}{\frac{\sum \vec m_k}{\Delta v}}
+\\\\
+\implies
+d\vec m = \vec M dv
+\end{gather}
+\]</div>
+<h3 id="magnetization+current">Magnetization Current<a class="headerlink" href="#magnetization+current" title="Permanent link">¶</a></h3>
+<ul>
+<li><strong>bound</strong> volume current density</li>
+</ul>
+<div class="arithmatex">\[
+\begin{gather}
+\vec J_b = \nabla \times \vec M
+\end{gather}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Comparison</p>
+<ul>
+<li>In a space <span class="arithmatex">\(\vec M = 0\)</span> (with free current only)</li>
+</ul>
+<div class="arithmatex">\[
+\begin{gather}
+\nabla \times \vec H = \vec J_f
+\end{gather}
+\]</div>
+</div>
+<ul>
+<li>bound surface current density
+<br/></li>
+</ul>
+<div class="arithmatex">\[
+\begin{gather}
+\vec K_b = \vec M \times \hat{a_n}
+\end{gather}
+\]</div>
+<p>the equation can be intuitively come up with by 
+<br/>
+<img alt="" src="../_attachments/55b1e2421347837a58aa5eda56ca5316.png"/></p>
+<h3 id="permeability">Permeability<a class="headerlink" href="#permeability" title="Permanent link">¶</a></h3>
+<p>In material <span class="arithmatex">\(\vec M \neq 0\)</span></p>
+<div class="arithmatex">\[
+\begin{gather}
+\nabla \times \frac{\vec B}{\mu_0} &amp;= &amp;\vec J_f &amp;+ \vec J_b &amp;= \vec J
+\\\\
+&amp;=&amp;\nabla \times \vec H &amp;+ \nabla \times \vec M &amp;
+\end{gather}
+\]</div>
+<div class="arithmatex">\[
+\begin{gather}
+\\
+\implies \vec B = \mu_0(\vec H + \vec M)
+\end{gather}
+\]</div>
+<p>For linear Model</p>
+<div class="arithmatex">\[
+\begin{gather}
+\vec M = \chi_m\vec H
+\end{gather}
+\]</div>
+<div class="arithmatex">\[
+\begin{align}
+\\
+\implies \vec B &amp;= \mu_0(1+\chi_m)\vec H
+\\\\
+&amp;= \mu_0\mu_r\,\vec H
+\\\\
+&amp;= \mu\vec H
+\end{align}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Comparison</p>
+<div class="arithmatex">\[
+\begin{gather}
+\vec D = \varepsilon_0 \vec E + \vec P
+\end{gather}
+\]</div>
+</div>
+<hr/>
+<h2 id="boundary+condition">Boundary Condition<a class="headerlink" href="#boundary+condition" title="Permanent link">¶</a></h2>
+<p>by Guass' law</p>
+<div class="arithmatex">\[
+\begin{gather}
+\nabla \cdot \vec B = 0
+\\\\
+\implies \vec B_{1n}= \vec B_{2n}
+\end{gather}
+\]</div>
+<p>by Amp.'s law</p>
+<div class="arithmatex">\[
+\begin{gather}
+\vec H_{1t\bot S} - \vec H_{2t\bot S}=\vec K
+\end{gather}
+\]</div>
+<hr/>
+<h2 id="inductance">Inductance<a class="headerlink" href="#inductance" title="Permanent link">¶</a></h2>
+<ul>
+<li>Definition in electric circuit</li>
+</ul>
+<div class="arithmatex">\[
+\begin{gather}
+v=L\frac{di}{dt}
+\end{gather}
+\]</div>
+<h3 id="magnetic+flux+linkage">Magnetic Flux Linkage<a class="headerlink" href="#magnetic+flux+linkage" title="Permanent link">¶</a></h3>
+<ul>
+<li>magnetic flux linkage <span class="arithmatex">\(\lambda\)</span></li>
+</ul>
+<div class="arithmatex">\[
+\begin{gather}
+d\lambda = Nd \psi = \frac{I_{int}}{I_{ext}}d\psi
+\end{gather}
+\]</div>
+<hr/>
+<h3 id="self+inductance">Self Inductance<a class="headerlink" href="#self+inductance" title="Permanent link">¶</a></h3>
+<div class="arithmatex">\[
+\begin{gather}
+L= \frac{\lambda }{I}=\frac{\displaystyle {N\int_S \vec B \cdot d \vec S}}{I}
+\end{gather}
+\]</div>
+<h3 id="mutual+inductance">Mutual Inductance<a class="headerlink" href="#mutual+inductance" title="Permanent link">¶</a></h3>
+<div class="arithmatex">\[
+\begin{gather}
+M_{12}=\frac{\lambda_{12}}{I_2}=\frac{\displaystyle{N_1\int_{S_1}{\vec B_2\cdot d\vec S}}}{I_2}
+\\\\
+M_{21}=\frac{\lambda_{21}}{I_1}=\frac{\displaystyle{N_2\int_{S_2}{\vec B_1\cdot d\vec S}}}{I_1}
+\\\\
+M_{12} = M_{21} = M
+\end{gather}
+\]</div>
+<hr/>
+<hr/>
+<h2 id="magnetic+energy">Magnetic Energy<a class="headerlink" href="#magnetic+energy" title="Permanent link">¶</a></h2>
+<ul>
+<li>Magnetic energy in circuit theory</li>
+</ul>
+<div class="arithmatex">\[
+\begin{align}
+W_m &amp;= \int{Pdt}=\int{VI\,dt}
+\\\\
+&amp;= \int_0^{t}{L\frac{dI}{dt}I\,dt}
+\\\\
+&amp;= \int_0^{I}{LI\,dI}=\frac{1}{2}LI^{2}
+\end{align}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Comparison</p>
+<div class="arithmatex">\[
+\begin{gather}
+W_e=\frac{1}{2}CV^{2}
+\end{gather}
+\]</div>
+</div>
+<ul>
+<li>magnetostatic energy density (in general)</li>
+</ul>
+<div class="arithmatex">\[
+\begin{gather}
+w_m=\frac{dW_m}{dv}=\frac{1}{2}\vec B \cdot \vec H
+\end{gather}
+\]</div>
+<hr/>
+<h2 id="magnetic+circuits">Magnetic Circuits<a class="headerlink" href="#magnetic+circuits" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Electric</th>
+<th>Magnetic</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(I\)</span></td>
+<td><span class="arithmatex">\(\psi\)</span></td>
+</tr>
+<tr>
+<td>emf <span class="arithmatex">\(V\)</span></td>
+<td>mmf <span class="arithmatex">\(ℱ\)</span></td>
+</tr>
+<tr>
+<td>resistance <span class="arithmatex">\(R\)</span></td>
+<td>reluctance <span class="arithmatex">\(ℛ\)</span></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>magnetomotive force (mmf)</li>
+</ul>
+<div class="arithmatex">\[
+\begin{gather}
+ℱ=\oint{\vec H \cdot d\vec ℓ}=NI
+\end{gather}
+\]</div>
+<ul>
+<li>Ohm's law</li>
+</ul>
+<div class="arithmatex">\[
+\begin{gather}
+ℛ=\frac{ℱ}{\psi}=\frac{Hℓ}{BS}=\frac{ℓ}{\mu S}
+\end{gather}
+\]</div>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: Electrostatics" class="md-footer__link md-footer__link--prev" href="../Electrostatics/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Previous
+              </span>
+              Electrostatics
+            </div>
+</div>
+</a>
+<a aria-label="Next: Method of Images" class="md-footer__link md-footer__link--next" href="../Method%20of%20Images/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Next
+              </span>
+              Method of Images
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+<div class="md-social">
+<a class="md-social__link" href="mailto:smark9005310@gmail.com" rel="noopener" target="_blank" title="">
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M498.1 5.6c10.1 7 15.4 19.1 13.5 31.2l-64 416c-1.5 9.7-7.4 18.2-16 23s-18.9 5.4-28 1.6l-126.3-52.5-40.1 74.5c-5.2 9.7-16.3 14.6-27 11.9S192 499 192 488v-96c0-5.3 1.8-10.5 5.1-14.7l165.3-212.6c2.5-7.1-6.5-14.3-13-8.4l-179 161.9-32 28.9c-9.2 8.3-22.3 10.6-33.8 5.8l-85-35.4C8.4 312.8.8 302.2.1 290s5.5-23.7 16.1-29.8l448-256c10.7-6.1 23.9-5.5 34 1.4z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+<script src="../../assets/javascripts/bundle.d6c3db9e.min.js"></script>
+<script src="../../javascripts/mathjax.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</body>
+</html>
