@@ -1,0 +1,2057 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../Fourier%20Series/" rel="prev"/>
+<link href="../Heat%20Equations/" rel="next"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.7.1" name="generator"/>
+<title>Fourier Transform - Bhbbbbb's Notes</title>
+<link href="../../assets/stylesheets/main.484c7ddc.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="deep-orange" data-md-color-primary="cyan" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#fourier+transform">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header md-header--shadow" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Bhbbbbb's Notes" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Bhbbbbb's Notes">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Bhbbbbb's Notes
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Fourier Transform
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="deep-orange" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="cyan" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="deep-orange" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="cyan" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"></path></svg>
+</label>
+</form>
+<script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/bhbbbbb/obsidian-publish" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+</div>
+<div class="md-source__repository">
+    bhbbbbb/obsidian-publish
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Bhbbbbb's Notes" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Bhbbbbb's Notes">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+    Bhbbbbb's Notes
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/bhbbbbb/obsidian-publish" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+</div>
+<div class="md-source__repository">
+    bhbbbbb/obsidian-publish
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+<span class="md-ellipsis">
+    
+  
+    Obsidian Notes
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../About%20Me/">
+<span class="md-ellipsis">
+    
+  
+    About Me
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Data%20Compression/">
+<span class="md-ellipsis">
+    
+  
+    Data Compression
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Linear_Algebra/">
+<span class="md-ellipsis">
+    
+  
+    Linear Algebra
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../test/">
+<span class="md-ellipsis">
+    
+  
+    Test
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Control Engineering
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Control Engineering
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Control%20Engineering/mid1/">
+<span class="md-ellipsis">
+    
+  
+    Mid1
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Control%20Engineering/mid2/">
+<span class="md-ellipsis">
+    
+  
+    Mid2
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_6_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_6_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Examples
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Control%20Engineering/examples/masion_rule_examples/">
+<span class="md-ellipsis">
+    
+  
+    Masion rule examples
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    DBMS
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    DBMS
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../DBMS/mid1/">
+<span class="md-ellipsis">
+    
+  
+    Mid1
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../DBMS/mid2/">
+<span class="md-ellipsis">
+    
+  
+    Mid2
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Data Compression
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Data Compression
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Data%20Compression/DataCompression/">
+<span class="md-ellipsis">
+    
+  
+    DataCompression
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_9" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Electromagnetics
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_9_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_9">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Electromagnetics
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Electromagnetics/Antenna/">
+<span class="md-ellipsis">
+    
+  
+    Antenna
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Electromagnetics/Boundary%20Value%20Problem/">
+<span class="md-ellipsis">
+    
+  
+    Boundary Value Problem
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Electromagnetics/EM_Wave/">
+<span class="md-ellipsis">
+    
+  
+    EM Wave
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Electromagnetics/Electrostatics/">
+<span class="md-ellipsis">
+    
+  
+    Electrostatics
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Electromagnetics/Magnetostatics/">
+<span class="md-ellipsis">
+    
+  
+    Magnetostatics
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Electromagnetics/Method%20of%20Images/">
+<span class="md-ellipsis">
+    
+  
+    Method of Images
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Electromagnetics/Transmission%20Line/">
+<span class="md-ellipsis">
+    
+  
+    Transmission Line
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Electromagnetics/Vector%20Calculus/">
+<span class="md-ellipsis">
+    
+  
+    Vector Calculus
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Electromagnetics/Wave%20Guide/">
+<span class="md-ellipsis">
+    
+  
+    Wave Guide
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_10" type="checkbox"/>
+<label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Electronics
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_10_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_10">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Electronics
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Electronics/Feedback/">
+<span class="md-ellipsis">
+    
+  
+    Feedback
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Electronics/Ouput%20Stage/">
+<span class="md-ellipsis">
+    
+  
+    Ouput Stage
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_11" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Engineering Math
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_11_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_11">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Engineering Math
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../1stODE/">
+<span class="md-ellipsis">
+    
+  
+    1stODE
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Fourier%20Integral/">
+<span class="md-ellipsis">
+    
+  
+    Fourier Integral
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Fourier%20Series/">
+<span class="md-ellipsis">
+    
+  
+    Fourier Series
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    
+  
+    Fourier Transform
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    
+  
+    Fourier Transform
+  
+
+    
+  </span>
+</a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#amplitude+spectrum">
+<span class="md-ellipsis">
+      
+        Amplitude Spectrum
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#fourier++inverse+fourier+transform">
+<span class="md-ellipsis">
+      
+        Fourier &amp; Inverse Fourier Transform
+      
+    </span>
+</a>
+<nav aria-label="Fourier &amp; Inverse Fourier Transform" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#fourier+sine+transform">
+<span class="md-ellipsis">
+      
+        Fourier Sine Transform
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#fourier+cosine+transform">
+<span class="md-ellipsis">
+      
+        Fourier Cosine Transform
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#fourier+transform+properties">
+<span class="md-ellipsis">
+      
+        Fourier Transform properties
+      
+    </span>
+</a>
+<nav aria-label="Fourier Transform properties" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#linearity">
+<span class="md-ellipsis">
+      
+        Linearity
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#time+shifting">
+<span class="md-ellipsis">
+      
+        Time Shifting
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#frequency+shifting">
+<span class="md-ellipsis">
+      
+        Frequency Shifting
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#scaling">
+<span class="md-ellipsis">
+      
+        Scaling
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#time+reversal">
+<span class="md-ellipsis">
+      
+        Time Reversal
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#symmetry">
+<span class="md-ellipsis">
+      
+        Symmetry
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#modulation">
+<span class="md-ellipsis">
+      
+        modulation
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#particular+example">
+<span class="md-ellipsis">
+      
+        particular example
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#frequency+differentiation">
+<span class="md-ellipsis">
+      
+        Frequency Differentiation
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#transforms+of+derivatives">
+<span class="md-ellipsis">
+      
+        Transforms of Derivatives
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#transform+of+integral">
+<span class="md-ellipsis">
+      
+        Transform of Integral
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#convolution">
+<span class="md-ellipsis">
+      
+        Convolution
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#dirac+delta+function">
+<span class="md-ellipsis">
+      
+        Dirac Delta Function
+      
+    </span>
+</a>
+<nav aria-label="Dirac Delta Function" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#fourier+transform_1">
+<span class="md-ellipsis">
+      
+        Fourier Transform
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#filtering">
+<span class="md-ellipsis">
+      
+        Filtering
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#discrete+fourier+transform">
+<span class="md-ellipsis">
+      
+        Discrete Fourier Transform
+      
+    </span>
+</a>
+<nav aria-label="Discrete Fourier Transform" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#linearity_1">
+<span class="md-ellipsis">
+      
+        Linearity
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#periodicity">
+<span class="md-ellipsis">
+      
+        Periodicity
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#inverse+n-point+dft">
+<span class="md-ellipsis">
+      
+        Inverse N-point DFT
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#complex+fourier+coefficients">
+<span class="md-ellipsis">
+      
+        Complex Fourier Coefficients
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sampled+fourier+series">
+<span class="md-ellipsis">
+      
+        Sampled Fourier Series
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#solving+the+bvp">
+<span class="md-ellipsis">
+      
+        Solving the BVP
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#method+of+separation+of+variable">
+<span class="md-ellipsis">
+      
+        Method of Separation of Variable
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Heat%20Equations/">
+<span class="md-ellipsis">
+    
+  
+    Heat Equation
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Higher%20Order%20DE/">
+<span class="md-ellipsis">
+    
+  
+    Higher Order DE
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Laplace%20Transform/">
+<span class="md-ellipsis">
+    
+  
+    Laplace Transform
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Potential%20Equation/">
+<span class="md-ellipsis">
+    
+  
+    Potential Equation
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Series%20Solution/">
+<span class="md-ellipsis">
+    
+  
+    Series Solution
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Special%20Functions/">
+<span class="md-ellipsis">
+    
+  
+    Special Functions
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Sturm-Liouville%20problem/">
+<span class="md-ellipsis">
+    
+  
+    Sturm-Liouville problem
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Wave%20Equations/">
+<span class="md-ellipsis">
+    
+  
+    Wave Equation
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_11_13" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_13" id="__nav_11_13_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Minority
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_11_13_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_11_13">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Minority
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../minority/Homogeneous%20Function/">
+<span class="md-ellipsis">
+    
+  
+    Homogeneous Function
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../minority/IVP/">
+<span class="md-ellipsis">
+    
+  
+    IVP
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../minority/Proof%20to%20Modified%20EE/">
+<span class="md-ellipsis">
+    
+  
+    Proof to Modified EE
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../minority/Step%20Function/">
+<span class="md-ellipsis">
+    
+  
+    Step Function
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../minority/Wronskian/">
+<span class="md-ellipsis">
+    
+  
+    Wronskian
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../minority/proof2/">
+<span class="md-ellipsis">
+    
+  
+    Proof2
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_12" type="checkbox"/>
+<label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Linear Algebra
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_12_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_12">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Linear Algebra
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Linear%20Algebra/Linear_Algebra/">
+<span class="md-ellipsis">
+    
+  
+    Linear Algebra
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_13" type="checkbox"/>
+<label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Machine Learning
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_13_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_13">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Machine Learning
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Machine%20Learning/MPPP/">
+<span class="md-ellipsis">
+    
+  
+    MPPP
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Machine%20Learning/Machine%20Learning/">
+<span class="md-ellipsis">
+    
+  
+    Machine Learning
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Machine%20Learning/PCA/">
+<span class="md-ellipsis">
+    
+  
+    PCA
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Machine%20Learning/cheat/">
+<span class="md-ellipsis">
+    
+  
+    Cheat
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Machine%20Learning/consistency/">
+<span class="md-ellipsis">
+    
+  
+    Consistency
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Machine%20Learning/pylint/">
+<span class="md-ellipsis">
+    
+  
+    Pylint
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_14" type="checkbox"/>
+<label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    OS
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_14_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_14">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    OS
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../OS/Mid1/">
+<span class="md-ellipsis">
+    
+  
+    Mid1
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../OS/Mid2/">
+<span class="md-ellipsis">
+    
+  
+    Mid2
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../OS/Mid3/">
+<span class="md-ellipsis">
+    
+  
+    Mid3
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_15" type="checkbox"/>
+<label class="md-nav__link" for="__nav_15" id="__nav_15_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Probability &amp; Statistics
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_15_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_15">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Probability &amp; Statistics
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Probability%20%26%20Statistics/Distributions/">
+<span class="md-ellipsis">
+    
+  
+    Distributions
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Probability%20%26%20Statistics/Mid/">
+<span class="md-ellipsis">
+    
+  
+    Mid
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#amplitude+spectrum">
+<span class="md-ellipsis">
+      
+        Amplitude Spectrum
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#fourier++inverse+fourier+transform">
+<span class="md-ellipsis">
+      
+        Fourier &amp; Inverse Fourier Transform
+      
+    </span>
+</a>
+<nav aria-label="Fourier &amp; Inverse Fourier Transform" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#fourier+sine+transform">
+<span class="md-ellipsis">
+      
+        Fourier Sine Transform
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#fourier+cosine+transform">
+<span class="md-ellipsis">
+      
+        Fourier Cosine Transform
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#fourier+transform+properties">
+<span class="md-ellipsis">
+      
+        Fourier Transform properties
+      
+    </span>
+</a>
+<nav aria-label="Fourier Transform properties" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#linearity">
+<span class="md-ellipsis">
+      
+        Linearity
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#time+shifting">
+<span class="md-ellipsis">
+      
+        Time Shifting
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#frequency+shifting">
+<span class="md-ellipsis">
+      
+        Frequency Shifting
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#scaling">
+<span class="md-ellipsis">
+      
+        Scaling
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#time+reversal">
+<span class="md-ellipsis">
+      
+        Time Reversal
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#symmetry">
+<span class="md-ellipsis">
+      
+        Symmetry
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#modulation">
+<span class="md-ellipsis">
+      
+        modulation
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#particular+example">
+<span class="md-ellipsis">
+      
+        particular example
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#frequency+differentiation">
+<span class="md-ellipsis">
+      
+        Frequency Differentiation
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#transforms+of+derivatives">
+<span class="md-ellipsis">
+      
+        Transforms of Derivatives
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#transform+of+integral">
+<span class="md-ellipsis">
+      
+        Transform of Integral
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#convolution">
+<span class="md-ellipsis">
+      
+        Convolution
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#dirac+delta+function">
+<span class="md-ellipsis">
+      
+        Dirac Delta Function
+      
+    </span>
+</a>
+<nav aria-label="Dirac Delta Function" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#fourier+transform_1">
+<span class="md-ellipsis">
+      
+        Fourier Transform
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#filtering">
+<span class="md-ellipsis">
+      
+        Filtering
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#discrete+fourier+transform">
+<span class="md-ellipsis">
+      
+        Discrete Fourier Transform
+      
+    </span>
+</a>
+<nav aria-label="Discrete Fourier Transform" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#linearity_1">
+<span class="md-ellipsis">
+      
+        Linearity
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#periodicity">
+<span class="md-ellipsis">
+      
+        Periodicity
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#inverse+n-point+dft">
+<span class="md-ellipsis">
+      
+        Inverse N-point DFT
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#complex+fourier+coefficients">
+<span class="md-ellipsis">
+      
+        Complex Fourier Coefficients
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sampled+fourier+series">
+<span class="md-ellipsis">
+      
+        Sampled Fourier Series
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#solving+the+bvp">
+<span class="md-ellipsis">
+      
+        Solving the BVP
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#method+of+separation+of+variable">
+<span class="md-ellipsis">
+      
+        Method of Separation of Variable
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="fourier+transform">Fourier Transform<a class="headerlink" href="#fourier+transform" title="Permanent link">¶</a></h1>
+<p><strong>Complex form</strong> or <strong>exponential form</strong> of <a href="../Fourier%20Integral/">Fourier Integral</a></p>
+<div class="arithmatex">\[
+𝔉\big[f(t)\big]=\int^{\infty}_{-\infty}{e^{-i\omega t}\ f(t)\ dt}
+\]</div>
+<p>assume that</p>
+<div class="arithmatex">\[
+\begin{gather}
+\int^{\infty}_{-\infty}{|f(x)|dx}
+\end{gather}
+\]</div>
+<p><strong>converges</strong></p>
+<ul>
+<li>
+<p>Comparison</p>
+<ol>
+<li>
+<p>compare to Laplace transform</p>
+<div class="arithmatex">\[\begin{align}
+s \to i\omega\\\\
+\int_0^{\infty} \to \int^{\infty}_{-\infty}
+\end{align}\]</div>
+</li>
+<li>
+<p>compare to Fourier Series
+    Fourier Transform can be regarded as Fourier series whose <span class="arithmatex">\(p \to \infty\)</span>.</p>
+</li>
+</ol>
+</li>
+</ul>
+<hr/>
+<h2 id="amplitude+spectrum">Amplitude Spectrum<a class="headerlink" href="#amplitude+spectrum" title="Permanent link">¶</a></h2>
+<p>The amplitude spectrum of <span class="arithmatex">\(f(t)\)</span> is a graph of <span class="arithmatex">\(\big|𝔉\big[f(\omega)\big]\big|\)</span></p>
+<hr/>
+<h2 id="fourier++inverse+fourier+transform">Fourier &amp; Inverse Fourier Transform<a class="headerlink" href="#fourier++inverse+fourier+transform" title="Permanent link">¶</a></h2>
+<ul>
+<li>
+<p>Fourier transform</p>
+<div class="arithmatex">\[
+𝔉\big[f(x)\big]=\int^{\infty}_{-\infty}{e^{-i\omega x}\ f(x)\ dx}
+\]</div>
+</li>
+<li>
+<p>inverse Fourier transform</p>
+<div class="arithmatex">\[
+𝔉^{-1}\big[F(\omega)\big]=\frac{1}{2\pi}\int_{-\infty}^{\infty}{F(\omega)\ e^{i\omega x}\ d\omega}=f(x)
+\]</div>
+</li>
+</ul>
+<h3 id="fourier+sine+transform">Fourier Sine Transform<a class="headerlink" href="#fourier+sine+transform" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>Fourier sine transform</p>
+<div class="arithmatex">\[
+𝔉_s\big[f(x)\big]=\int_0^{\infty}{f(x)\ \sin{(\omega x)\ dx=F(\omega)}}
+\]</div>
+</li>
+<li>
+<p>inverse Fourier sine transform</p>
+<div class="arithmatex">\[
+𝔉_s^{-1}\big[F(\omega)\big]=\frac{2}{\pi}\int_0^{\infty}{F(\omega)\,\sin{(\omega x)}\ d\omega}=f(x)
+\]</div>
+</li>
+</ul>
+<h3 id="fourier+cosine+transform">Fourier Cosine Transform<a class="headerlink" href="#fourier+cosine+transform" title="Permanent link">¶</a></h3>
+<ul>
+<li>Fourier cosine transform</li>
+</ul>
+<div class="arithmatex">\[
+𝔉_c\big[f(x)\big]=\int_0^{\infty}{f(x)\,\cos{(\omega x)}\ dx}= F(\omega)
+\]</div>
+<ul>
+<li>inverse Fourier cosine transform</li>
+</ul>
+<div class="arithmatex">\[
+𝔉_c^{-1}\big[F(\omega)\big]=\frac{2}{\pi}\int_0^{\infty}{F(\omega)\ \cos{(\omega x)}\ d\omega}=f(x)
+\]</div>
+<hr/>
+<h2 id="fourier+transform+properties">Fourier Transform properties<a class="headerlink" href="#fourier+transform+properties" title="Permanent link">¶</a></h2>
+<h3 id="linearity">Linearity<a class="headerlink" href="#linearity" title="Permanent link">¶</a></h3>
+<div class="arithmatex">\[
+    \begin{gather}
+    \alpha, \beta \in ℝ \\\\
+    𝔉\big[\alpha f(t)+\beta g(t)\big]=\alpha𝔉\big[f(t)\big]+𝔉\big[\beta g(t)\big]
+    \end{gather}
+    \]</div>
+<hr/>
+<h3 id="time+shifting">Time Shifting<a class="headerlink" href="#time+shifting" title="Permanent link">¶</a></h3>
+<div class="arithmatex">\[
+    \begin{gather}
+    𝔉\big[f(t-t_0)\big]=e^{-i\omega t_0} \ 𝔉\big[f(t)\big]
+    \end{gather}
+    \]</div>
+<ul>
+<li>
+<p>Inverse Time Shifting</p>
+<div class="arithmatex">\[
+    \begin{gather}
+    𝔉^{-1}\big[e^{-i\omega t_0}F(\omega)\big](t)=f(t-t_0)
+    \end{gather}
+    \]</div>
+</li>
+</ul>
+<h3 id="frequency+shifting">Frequency Shifting<a class="headerlink" href="#frequency+shifting" title="Permanent link">¶</a></h3>
+<div class="arithmatex">\[
+    \begin{gather}
+    𝔉\big[e^{i\omega_0 t}\ f(t)\big]=F(\omega-\omega_0)
+    \end{gather}
+    \]</div>
+<ul>
+<li>
+<p>Inverse Frequency Shifting</p>
+<div class="arithmatex">\[
+    \begin{align}
+    𝔉^{-1}\big[F(\omega-\omega_0)\big]=e^{i\omega_0 t} \ f(t)
+    \end{align}
+    \]</div>
+</li>
+</ul>
+<h3 id="scaling">Scaling<a class="headerlink" href="#scaling" title="Permanent link">¶</a></h3>
+<div class="arithmatex">\[
+    \begin{gather}
+    𝔉\big[f(ct)\big]=\frac{1}{|c|}F(\frac{\omega}{c})
+    \end{gather}
+    \]</div>
+<ul>
+<li>Inverse Scaling</li>
+</ul>
+<div class="arithmatex">\[
+    \begin{gather}
+    𝔉^{-1}\big[F(\frac{\omega}{c})\big]=|c|\ f(ct)
+    \end{gather}
+    \]</div>
+<h3 id="time+reversal">Time Reversal<a class="headerlink" href="#time+reversal" title="Permanent link">¶</a></h3>
+<div class="arithmatex">\[
+    \begin{gather}
+    𝔉\big[f(-t)\big]=F(-\omega)\\\\
+    𝔉^{-1}\big[F(-\omega)\big]=f(-t)
+    \end{gather}
+    \]</div>
+<h3 id="symmetry">Symmetry<a class="headerlink" href="#symmetry" title="Permanent link">¶</a></h3>
+<div class="arithmatex">\[
+    \begin{gather}
+    𝔉\big[F(t)\big]=2\pi f(-\omega)
+    \end{gather}
+    \]</div>
+<h3 id="modulation">modulation<a class="headerlink" href="#modulation" title="Permanent link">¶</a></h3>
+<div class="arithmatex">\[
+    \begin{align}
+    𝔉\big[f(t)\cos{(\omega_0 t)}\big]&amp;=\frac{1}{2}[F(\omega+\omega_0)+F(\omega-\omega_0)]\\\\
+    𝔉\big[f(t) \sin(\omega_0 t)\big]&amp;=\frac{i}{2}[F(\omega+\omega_0)-F(\omega-\omega_0)]
+    \end{align}
+    \]</div>
+<h3 id="particular+example">particular example<a class="headerlink" href="#particular+example" title="Permanent link">¶</a></h3>
+<p>prof. Laplace Transform</p>
+<div class="arithmatex">\[
+    \begin{gather}
+    𝔉\big[H(t)e^{-at}\big]=\frac{1}{a+i\omega}
+    \end{gather}
+    \]</div>
+<h3 id="frequency+differentiation">Frequency Differentiation<a class="headerlink" href="#frequency+differentiation" title="Permanent link">¶</a></h3>
+<div class="arithmatex">\[
+    \begin{gather}
+    𝔉\big[t^nf(t)\big]=(i)^nF^{(n)}
+    \end{gather}
+    \]</div>
+<hr/>
+<h3 id="transforms+of+derivatives">Transforms of Derivatives<a class="headerlink" href="#transforms+of+derivatives" title="Permanent link">¶</a></h3>
+<ol>
+<li>
+<p>for Fourier transform</p>
+<div class="arithmatex">\[
+\begin{align}
+𝔉\big[f'(x)\big]=i\omega F(\omega)
+\\\\
+𝔉\big[f^{(n)}\big]=(i\omega)^{n}\ F(\omega)
+\end{align}
+\]</div>
+</li>
+<li>
+<p>for Fourier sine transform</p>
+<div class="arithmatex">\[
+\begin{align}
+𝔉_s\big[f'(x)\big]=-\omega \ 𝔉_c\big[f(x)\big]
+\\\\
+𝔉_s\big[f''(x)\big]= -\omega^2\ 𝔉_s\big[f(x)\big]+\omega f(0)
+\end{align}
+\]</div>
+</li>
+<li>
+<p>for Fourier cosine transform</p>
+<div class="arithmatex">\[
+\begin{align}
+𝔉_c\big[f'(x)\big]=\omega \, 𝔉_s\big[f(x)\big]-f(0)
+\\\\
+𝔉_c\big[f''(x)\big]=-\omega^2𝔉_c\big[f(x)\big]-f'(0)
+\end{align}
+\]</div>
+</li>
+</ol>
+<hr/>
+<h3 id="transform+of+integral">Transform of Integral<a class="headerlink" href="#transform+of+integral" title="Permanent link">¶</a></h3>
+<div class="arithmatex">\[
+\begin{align}
+𝔉\left[\int_{-\infty}^{t}{f(\tau )d\tau}\right]=\frac{1}{i\omega}F(\omega)
+\end{align}
+\]</div>
+<hr/>
+<h2 id="convolution">Convolution<a class="headerlink" href="#convolution" title="Permanent link">¶</a></h2>
+<ul>
+<li>Definition</li>
+</ul>
+<div class="arithmatex">\[
+\begin{gather}
+f(t)*g(t)=\int_{-\infty}^{\infty}{f(\tau)\ g(t-\tau)\ d\tau}
+\end{gather}
+\]</div>
+<ul>
+<li>Property</li>
+</ul>
+<div class="arithmatex">\[
+\begin{align}
+f * g &amp;= g * f \\\\
+(\alpha f+\beta g)*h&amp;=\alpha(f*h)+\beta(g*h)
+\end{align}
+\]</div>
+<ul>
+<li>Theorem</li>
+</ul>
+<div class="arithmatex">\[
+\begin{gather}
+\int_{-\infty}^{\infty}{\left[f(t)*g(t)\right]\ dt}=\int^{\infty}_{-\infty}{f(t)dt}\cdot \int^{\infty}_{-\infty}{g(t)dt}\\\\
+𝔉\big[f(t) * g(t)\big]=F(\omega) \ G(\omega)\\\\
+𝔉\left[f(t)\ g(t)\right]=\frac{1}{2\pi}F(\omega)*G(\omega)
+\end{gather}
+\]</div>
+<hr/>
+<h2 id="dirac+delta+function">Dirac Delta Function<a class="headerlink" href="#dirac+delta+function" title="Permanent link">¶</a></h2>
+<ul>
+<li>
+<p>Definition</p>
+<div class="arithmatex">\[
+\begin{gather}
+\delta(t)=\lim_{a\to 0}{\left[\frac{1}{2a}H(t+a)-H(t-a)\right]}
+\end{gather}
+\]</div>
+</li>
+</ul>
+<h3 id="fourier+transform_1">Fourier Transform<a class="headerlink" href="#fourier+transform_1" title="Permanent link">¶</a></h3>
+<div class="arithmatex">\[
+\begin{gather}
+𝔉\left[\delta(t)\right]=𝔉\left[\lim_{a\to 0}{\left[\frac{1}{2a}H(t+a)-H(t-a)\right]}\right]=\lim_{a\to 0}{\frac{\sin{(a\omega)}}{a\omega}}=1
+\end{gather}
+\]</div>
+<h3 id="filtering">Filtering<a class="headerlink" href="#filtering" title="Permanent link">¶</a></h3>
+<div class="arithmatex">\[
+\begin{gather}
+\int^{\infty}_{-\infty}{f(t)\delta(t-t_0)\ dt}=f(t_0)
+\end{gather}
+\]</div>
+<hr/>
+<h2 id="discrete+fourier+transform">Discrete Fourier Transform<a class="headerlink" href="#discrete+fourier+transform" title="Permanent link">¶</a></h2>
+<p>Let <span class="arithmatex">\(u=\left\{u_j\right\}^{N-1}_{j=0}\)</span></p>
+<div class="arithmatex">\[
+\begin{gather}
+D[u]=U_k=
+ \sum_{j=0}^{N-1}{u_j\exp{\left(-i\ \omega_0 j\   \frac{T}{N}\right)}}
+ = \sum_{j=0}^{N-1}{u_j\exp{\left(-i\ 2\pi\  j\   \frac{1}{N}\right)}}
+\end{gather}
+\]</div>
+<!--
+- Derivation
+
+let $f$ has period T, its [Complex Fourier Series](<./Fourier Series.md#complex-fourier-series>) is
+
+$$
+\begin{gather}
+\sum_{k=-\infty}^{\infty}{d_k e^{ik\omega_0 t}}
+\end{gather}
+$$
+
+in which
+
+$$
+\begin{gather}
+d_k=\frac{1}{T}\int_P{d_k\ e^{-i\omega_0 kt}}\qquad , \text{for }k\inℤ
+\end{gather}
+$$
+
+ approximate $d_k$ by Riemann sum, then we get
+
+ $$
+ \begin{align}
+ d_k&=\frac{1}{T}\sum_{j=0}^{N-1}{f(t_j)\exp{\left(-i\ \omega_0 j\   \frac{T}{N}\right)}\cdot\frac{T}{N}}
+ \\\\
+ &=\frac{1}{N}
+ \sum_{j=0}^{N-1}{f(t_j)\exp{\left(-i\ \omega_0 j\   \frac{T}{N}\right)}}
+ \end{align}
+ $$
+
+-->
+<h3 id="linearity_1">Linearity<a class="headerlink" href="#linearity_1" title="Permanent link">¶</a></h3>
+<div class="arithmatex">\[
+\begin{gather}
+D\left[au+bv\right]=aU_k+bV_k
+\end{gather}
+\]</div>
+<h3 id="periodicity">Periodicity<a class="headerlink" href="#periodicity" title="Permanent link">¶</a></h3>
+<div class="arithmatex">\[
+\begin{gather}
+U_{k+N}=U_k
+\end{gather}
+\]</div>
+<h3 id="inverse+n-point+dft">Inverse N-point DFT<a class="headerlink" href="#inverse+n-point+dft" title="Permanent link">¶</a></h3>
+<div class="arithmatex">\[
+\begin{gather}
+u_j=\frac{1}{N}\sum_{j=0}^{N-1}{U_k\exp{\left(i\ \omega_0 j\   \frac{T}{N}\right)}}=\frac{1}{N}\sum_{j=0}^{N-1}{U_k\exp{\left(i\ 2\pi \ j\   \frac{1}{N}\right)}}
+\end{gather}
+\]</div>
+<h3 id="complex+fourier+coefficients">Complex Fourier Coefficients<a class="headerlink" href="#complex+fourier+coefficients" title="Permanent link">¶</a></h3>
+<div class="arithmatex">\[
+\begin{gather}
+d_k \approx \frac{1}{N}\cdot U_k
+\end{gather}
+\]</div>
+<p>note that the coefficient of complex Fourier <span class="arithmatex">\(C_\omega\)</span></p>
+<div class="arithmatex">\[
+\begin{gather}
+C_\omega=\frac{1}{2\pi}\cdot 𝔉\left[f(t)\right]
+\end{gather}
+\]</div>
+<hr/>
+<h2 id="sampled+fourier+series">Sampled Fourier Series<a class="headerlink" href="#sampled+fourier+series" title="Permanent link">¶</a></h2>
+<div class="arithmatex">\[
+\begin{gather}
+S_M\left(\frac{jT}{n}\right)\approx\frac{1}{N}\sum_{k=0}
+^{N-1}{V_k\ e^{i\omega_0 jkT/N }}
+\end{gather}
+\]</div>
+<p>in which</p>
+<div class="arithmatex">\[
+V_k=\left\{
+\begin{align}
+&amp;U_k  &amp;\text{for }k=0, 1, \dots, M
+\\\\
+ &amp;0   &amp;\text{for }k=M+1, \dots, N-M+1
+\\\\
+&amp;U_k  &amp;\text{for }k=N-M, \dots, N-1
+\end{align}\right.
+\]</div>
+<h2 id="solving+the+bvp">Solving the BVP<a class="headerlink" href="#solving+the+bvp" title="Permanent link">¶</a></h2>
+<ul>
+<li>BVP (Boundary Value Problem)</li>
+</ul>
+<p>There are three possible condition below</p>
+<ol>
+<li>
+<p><span class="arithmatex">\(-\infty &lt; x &lt;\infty\)</span></p>
+<p><span class="arithmatex">\(\Rightarrow\)</span> Fourier transform</p>
+</li>
+<li>
+<p><span class="arithmatex">\(0 &lt; x &lt; \infty\)</span> and <span class="arithmatex">\(u(x,y)\bigg|_{x=0} = 0\)</span></p>
+<p><span class="arithmatex">\(\Rightarrow\)</span> Fourier sine transform</p>
+</li>
+<li>
+<p><span class="arithmatex">\(0 &lt; x &lt; \infty\)</span> and <span class="arithmatex">\(\frac{\partial}{\partial x}u(x, y)\bigg|_{x=0}=0\)</span></p>
+<p><span class="arithmatex">\(\Rightarrow\)</span> Fourier cosine transform</p>
+</li>
+</ol>
+<hr/>
+<h2 id="method+of+separation+of+variable">Method of Separation of Variable<a class="headerlink" href="#method+of+separation+of+variable" title="Permanent link">¶</a></h2>
+<p>kernel :
+assume that
+1.</p>
+<div class="arithmatex">\[u(x,y)=X(x)\ Y(y)\]</div>
+<p>2.</p>
+<div class="arithmatex">\["f(x)"\ =\ "f(y)"\ =\ -\lambda\]</div>
+</article>
+</div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+<div class="md-social">
+<a class="md-social__link" href="mailto:smark9005310@gmail.com" rel="noopener" target="_blank" title="">
+<svg viewbox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M536.4-26.3c9.8-3.5 20.6-1 28 6.3s9.8 18.2 6.3 28l-178 496.9c-5 13.9-18.1 23.1-32.8 23.1-14.2 0-27-8.6-32.3-21.7l-64.2-158c-4.5-11-2.5-23.6 5.2-32.6l94.5-112.4c5.1-6.1 4.7-15-.9-20.6s-14.6-6-20.6-.9l-112.4 94.3c-9.1 7.6-21.6 9.6-32.6 5.2L38.1 216.8c-13.1-5.3-21.7-18.1-21.7-32.3 0-14.7 9.2-27.8 23.1-32.8z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+<script src="../../javascripts/mathjax.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,1674 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../../Electronics/Ouput%20Stage/" rel="prev"/>
+<link href="../Fourier%20Integral/" rel="next"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.7.1" name="generator"/>
+<title>1stODE - Bhbbbbb's Notes</title>
+<link href="../../assets/stylesheets/main.484c7ddc.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="deep-orange" data-md-color-primary="cyan" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#separable+variable+method">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header md-header--shadow" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Bhbbbbb's Notes" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Bhbbbbb's Notes">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Bhbbbbb's Notes
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              1stODE
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="deep-orange" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="cyan" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="deep-orange" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="cyan" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"></path></svg>
+</label>
+</form>
+<script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/bhbbbbb/obsidian-publish" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+</div>
+<div class="md-source__repository">
+    bhbbbbb/obsidian-publish
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Bhbbbbb's Notes" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Bhbbbbb's Notes">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+    Bhbbbbb's Notes
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/bhbbbbb/obsidian-publish" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+</div>
+<div class="md-source__repository">
+    bhbbbbb/obsidian-publish
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+<span class="md-ellipsis">
+    
+  
+    Obsidian Notes
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../About%20Me/">
+<span class="md-ellipsis">
+    
+  
+    About Me
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Data%20Compression/">
+<span class="md-ellipsis">
+    
+  
+    Data Compression
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Linear_Algebra/">
+<span class="md-ellipsis">
+    
+  
+    Linear Algebra
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../test/">
+<span class="md-ellipsis">
+    
+  
+    Test
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Control Engineering
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Control Engineering
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Control%20Engineering/mid1/">
+<span class="md-ellipsis">
+    
+  
+    Mid1
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Control%20Engineering/mid2/">
+<span class="md-ellipsis">
+    
+  
+    Mid2
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_6_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_6_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Examples
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Control%20Engineering/examples/masion_rule_examples/">
+<span class="md-ellipsis">
+    
+  
+    Masion rule examples
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    DBMS
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    DBMS
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../DBMS/mid1/">
+<span class="md-ellipsis">
+    
+  
+    Mid1
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../DBMS/mid2/">
+<span class="md-ellipsis">
+    
+  
+    Mid2
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Data Compression
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Data Compression
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Data%20Compression/DataCompression/">
+<span class="md-ellipsis">
+    
+  
+    DataCompression
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_9" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Electromagnetics
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_9_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_9">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Electromagnetics
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Electromagnetics/Antenna/">
+<span class="md-ellipsis">
+    
+  
+    Antenna
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Electromagnetics/Boundary%20Value%20Problem/">
+<span class="md-ellipsis">
+    
+  
+    Boundary Value Problem
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Electromagnetics/EM_Wave/">
+<span class="md-ellipsis">
+    
+  
+    EM Wave
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Electromagnetics/Electrostatics/">
+<span class="md-ellipsis">
+    
+  
+    Electrostatics
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Electromagnetics/Magnetostatics/">
+<span class="md-ellipsis">
+    
+  
+    Magnetostatics
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Electromagnetics/Method%20of%20Images/">
+<span class="md-ellipsis">
+    
+  
+    Method of Images
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Electromagnetics/Transmission%20Line/">
+<span class="md-ellipsis">
+    
+  
+    Transmission Line
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Electromagnetics/Vector%20Calculus/">
+<span class="md-ellipsis">
+    
+  
+    Vector Calculus
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Electromagnetics/Wave%20Guide/">
+<span class="md-ellipsis">
+    
+  
+    Wave Guide
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_10" type="checkbox"/>
+<label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Electronics
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_10_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_10">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Electronics
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Electronics/Feedback/">
+<span class="md-ellipsis">
+    
+  
+    Feedback
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Electronics/Ouput%20Stage/">
+<span class="md-ellipsis">
+    
+  
+    Ouput Stage
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_11" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Engineering Math
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_11_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_11">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Engineering Math
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    
+  
+    1stODE
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    
+  
+    1stODE
+  
+
+    
+  </span>
+</a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#separable+variable+method">
+<span class="md-ellipsis">
+      
+        Separable Variable Method
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#linear+equation">
+<span class="md-ellipsis">
+      
+        linear Equation
+      
+    </span>
+</a>
+<nav aria-label="linear Equation" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#standard+form">
+<span class="md-ellipsis">
+      
+        standard form
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#integrating+factor">
+<span class="md-ellipsis">
+      
+        integrating factor
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#solving+method">
+<span class="md-ellipsis">
+      
+        solving method
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#exact+equation">
+<span class="md-ellipsis">
+      
+        Exact Equation
+      
+    </span>
+</a>
+<nav aria-label="Exact Equation" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#solution+to+exact+equation">
+<span class="md-ellipsis">
+      
+        solution to exact equation
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#modify+non-exact+equations+to+exact+equations">
+<span class="md-ellipsis">
+      
+        modify non-exact equations to exact equations
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#homogeneous+equation">
+<span class="md-ellipsis">
+      
+        homogeneous Equation
+      
+    </span>
+</a>
+<nav aria-label="homogeneous Equation" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#homogeneous+linear+equation">
+<span class="md-ellipsis">
+      
+        homogeneous Linear Equation
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#homogeneous+1st+ode">
+<span class="md-ellipsis">
+      
+        homogeneous 1st ODE
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#solution+to+1st+ode">
+<span class="md-ellipsis">
+      
+        Solution to 1st ODE
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#bernoullis+equations">
+<span class="md-ellipsis">
+      
+        Bernoulli's Equations
+      
+    </span>
+</a>
+<nav aria-label="Bernoulli's Equations" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#standard+form_1">
+<span class="md-ellipsis">
+      
+        standard form
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#solution">
+<span class="md-ellipsis">
+      
+        Solution
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ax++by++c">
+<span class="md-ellipsis">
+      
+        Ax + By + C
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Fourier%20Integral/">
+<span class="md-ellipsis">
+    
+  
+    Fourier Integral
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Fourier%20Series/">
+<span class="md-ellipsis">
+    
+  
+    Fourier Series
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Fourier%20Transform/">
+<span class="md-ellipsis">
+    
+  
+    Fourier Transform
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Heat%20Equations/">
+<span class="md-ellipsis">
+    
+  
+    Heat Equation
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Higher%20Order%20DE/">
+<span class="md-ellipsis">
+    
+  
+    Higher Order DE
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Laplace%20Transform/">
+<span class="md-ellipsis">
+    
+  
+    Laplace Transform
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Potential%20Equation/">
+<span class="md-ellipsis">
+    
+  
+    Potential Equation
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Series%20Solution/">
+<span class="md-ellipsis">
+    
+  
+    Series Solution
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Special%20Functions/">
+<span class="md-ellipsis">
+    
+  
+    Special Functions
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Sturm-Liouville%20problem/">
+<span class="md-ellipsis">
+    
+  
+    Sturm-Liouville problem
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Wave%20Equations/">
+<span class="md-ellipsis">
+    
+  
+    Wave Equation
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_11_13" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_13" id="__nav_11_13_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Minority
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_11_13_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_11_13">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Minority
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../minority/Homogeneous%20Function/">
+<span class="md-ellipsis">
+    
+  
+    Homogeneous Function
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../minority/IVP/">
+<span class="md-ellipsis">
+    
+  
+    IVP
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../minority/Proof%20to%20Modified%20EE/">
+<span class="md-ellipsis">
+    
+  
+    Proof to Modified EE
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../minority/Step%20Function/">
+<span class="md-ellipsis">
+    
+  
+    Step Function
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../minority/Wronskian/">
+<span class="md-ellipsis">
+    
+  
+    Wronskian
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../minority/proof2/">
+<span class="md-ellipsis">
+    
+  
+    Proof2
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_12" type="checkbox"/>
+<label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Linear Algebra
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_12_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_12">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Linear Algebra
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Linear%20Algebra/Linear_Algebra/">
+<span class="md-ellipsis">
+    
+  
+    Linear Algebra
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_13" type="checkbox"/>
+<label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Machine Learning
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_13_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_13">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Machine Learning
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Machine%20Learning/MPPP/">
+<span class="md-ellipsis">
+    
+  
+    MPPP
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Machine%20Learning/Machine%20Learning/">
+<span class="md-ellipsis">
+    
+  
+    Machine Learning
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Machine%20Learning/PCA/">
+<span class="md-ellipsis">
+    
+  
+    PCA
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Machine%20Learning/cheat/">
+<span class="md-ellipsis">
+    
+  
+    Cheat
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Machine%20Learning/consistency/">
+<span class="md-ellipsis">
+    
+  
+    Consistency
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Machine%20Learning/pylint/">
+<span class="md-ellipsis">
+    
+  
+    Pylint
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_14" type="checkbox"/>
+<label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    OS
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_14_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_14">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    OS
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../OS/Mid1/">
+<span class="md-ellipsis">
+    
+  
+    Mid1
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../OS/Mid2/">
+<span class="md-ellipsis">
+    
+  
+    Mid2
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../OS/Mid3/">
+<span class="md-ellipsis">
+    
+  
+    Mid3
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_15" type="checkbox"/>
+<label class="md-nav__link" for="__nav_15" id="__nav_15_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Probability &amp; Statistics
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_15_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_15">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Probability &amp; Statistics
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Probability%20%26%20Statistics/Distributions/">
+<span class="md-ellipsis">
+    
+  
+    Distributions
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Probability%20%26%20Statistics/Mid/">
+<span class="md-ellipsis">
+    
+  
+    Mid
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#separable+variable+method">
+<span class="md-ellipsis">
+      
+        Separable Variable Method
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#linear+equation">
+<span class="md-ellipsis">
+      
+        linear Equation
+      
+    </span>
+</a>
+<nav aria-label="linear Equation" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#standard+form">
+<span class="md-ellipsis">
+      
+        standard form
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#integrating+factor">
+<span class="md-ellipsis">
+      
+        integrating factor
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#solving+method">
+<span class="md-ellipsis">
+      
+        solving method
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#exact+equation">
+<span class="md-ellipsis">
+      
+        Exact Equation
+      
+    </span>
+</a>
+<nav aria-label="Exact Equation" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#solution+to+exact+equation">
+<span class="md-ellipsis">
+      
+        solution to exact equation
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#modify+non-exact+equations+to+exact+equations">
+<span class="md-ellipsis">
+      
+        modify non-exact equations to exact equations
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#homogeneous+equation">
+<span class="md-ellipsis">
+      
+        homogeneous Equation
+      
+    </span>
+</a>
+<nav aria-label="homogeneous Equation" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#homogeneous+linear+equation">
+<span class="md-ellipsis">
+      
+        homogeneous Linear Equation
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#homogeneous+1st+ode">
+<span class="md-ellipsis">
+      
+        homogeneous 1st ODE
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#solution+to+1st+ode">
+<span class="md-ellipsis">
+      
+        Solution to 1st ODE
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#bernoullis+equations">
+<span class="md-ellipsis">
+      
+        Bernoulli's Equations
+      
+    </span>
+</a>
+<nav aria-label="Bernoulli's Equations" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#standard+form_1">
+<span class="md-ellipsis">
+      
+        standard form
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#solution">
+<span class="md-ellipsis">
+      
+        Solution
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ax++by++c">
+<span class="md-ellipsis">
+      
+        Ax + By + C
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1>1stODE</h1>
+<h2 id="separable+variable+method">Separable Variable Method<a class="headerlink" href="#separable+variable+method" title="Permanent link">¶</a></h2>
+<p>for any ODE satisfying</p>
+<div class="arithmatex">\[
+\frac{dy}{dx}=g(x)h(y)
+\]</div>
+<hr/>
+<h2 id="linear+equation">linear Equation<a class="headerlink" href="#linear+equation" title="Permanent link">¶</a></h2>
+<p><br/></p>
+<h3 id="standard+form">standard form<a class="headerlink" href="#standard+form" title="Permanent link">¶</a></h3>
+<div class="arithmatex">\[y'+P(x)y=f(x)\]</div>
+<hr/>
+<h3 id="integrating+factor">integrating factor<a class="headerlink" href="#integrating+factor" title="Permanent link">¶</a></h3>
+<div class="arithmatex">\[
+M(x)=e^{\int{P(x)dx}}
+\]</div>
+<hr/>
+<h3 id="solving+method">solving method<a class="headerlink" href="#solving+method" title="Permanent link">¶</a></h3>
+<ol>
+<li>
+<p>standard form</p>
+<div class="arithmatex">\[y'+Py=f\]</div>
+</li>
+<li>
+<p>multiple M(x)</p>
+<div class="arithmatex">\[y'⋅M+P⋅My=f⋅M\]</div>
+</li>
+<li>
+<p>notice that  </p>
+<div class="arithmatex">\[M'=P⋅M\]</div>
+</li>
+<li>
+<p>thus (form 2.)</p>
+<div class="arithmatex">\[M\cdot y'+M'\cdot y=M\cdot f\]</div>
+</li>
+<li>
+<p>according to product rule</p>
+<div class="arithmatex">\[\frac{d}{dx}(M\cdot y)=M\cdot f\]</div>
+</li>
+<li>
+<p>integrate both sides</p>
+<div class="arithmatex">\[M\cdot y = \int{M\cdot f dx} + c\]</div>
+</li>
+<li>
+<p>check initial value and <strong>singular points</strong> <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></p>
+</li>
+</ol>
+<hr/>
+<h2 id="exact+equation">Exact Equation<a class="headerlink" href="#exact+equation" title="Permanent link">¶</a></h2>
+<p>Any 1<sup>st</sup> ODE can be written as</p>
+<div class="arithmatex">\[M(x, y)dx+N(x, y)dy=0\]</div>
+<p>If <span class="arithmatex">\(\exists f(x, y)\)</span>, s.t.</p>
+<div class="arithmatex">\[df(x,y)=\frac{∂f(x,y)}{∂x}dx+\frac{\partial f(x,y)}{∂y}dy=0\]</div>
+<p>which means</p>
+<blockquote>
+<div class="arithmatex">\[\frac{∂f(x, y)}{∂x}=M(x, y)\]</div>
+<div class="arithmatex">\[\text{and}\]</div>
+<div class="arithmatex">\[\frac{∂f(x, y)}{∂x}=N(x, y)\]</div>
+</blockquote>
+<p>, then</p>
+<div class="arithmatex">\[M(x, y)dx+N(x, y)dy=0\]</div>
+<p>is an <strong>Exact Equation</strong>.</p>
+<hr/>
+<p>for an exact equation</p>
+<div class="arithmatex">\[M(x, y)dx+N(x, y)dy=0\]</div>
+<p>due to</p>
+<div class="arithmatex">\[df(x,y)=\frac{∂f(x,y)}{∂x}dx+\frac{\partial f(x,y)}{∂y}dy=0\]</div>
+<p>we know that</p>
+<div class="arithmatex">\[
+f(x,y) = c
+\]</div>
+<hr/>
+<h3 id="solution+to+exact+equation">solution to exact equation<a class="headerlink" href="#solution+to+exact+equation" title="Permanent link">¶</a></h3>
+<div class="arithmatex">\[M(x, y)dx+N(x, y)dy=0\]</div>
+<ol>
+<li>
+<p>check the 1<sup>st</sup> ODE is exact equation</p>
+<div class="arithmatex">\[\frac{∂M}{∂y}=\frac{∂N}{∂x}=\frac{∂f}{∂x∂y}\]</div>
+</li>
+<li>
+<p>then</p>
+<div class="arithmatex">\[f(x,y) = \int{M\cdot dx} + g(y)\]</div>
+</li>
+<li>
+<p>and we can get <span class="arithmatex">\(g(y)\)</span> by</p>
+<div class="arithmatex">\[\frac{\partial}{\partial y}f(x,y)=N(x, y)\]</div>
+</li>
+<li>
+<p>solve</p>
+<div class="arithmatex">\[f(x, y)=c\]</div>
+</li>
+</ol>
+<hr/>
+<h3 id="modify+non-exact+equations+to+exact+equations">modify non-exact equations to exact equations<a class="headerlink" href="#modify+non-exact+equations+to+exact+equations" title="Permanent link">¶</a></h3>
+<p>given a 1<sup>st</sup> ODE which isn't exact equation</p>
+<div class="arithmatex">\[M(x,y)dx+N(x,y)dy=0\]</div>
+<p>meaning</p>
+<div class="arithmatex">\[\frac{∂M}{∂y}\neq \frac{∂N}{∂x}\]</div>
+<p>we can try to find an integrating factor <span class="arithmatex">\(\mu\)</span> s.t.</p>
+<div class="arithmatex">\[
+\mu M dx + \mu N dy = 0
+\]</div>
+<p>is an exact equation.</p>
+<p><br/></p>
+<p>check if this equation satisfy either</p>
+<p>1.
+    &gt; 
+    &gt; $<span class="arithmatex">\(h(y)=\frac{N_x-M_y}{M}\)</span>$
+    &gt; 
+    &gt; is independent to <span class="arithmatex">\(x\)</span>. (dependent to <span class="arithmatex">\(y\)</span> alone)</p>
+<p>or</p>
+<p>2.
+    &gt; 
+    &gt; $<span class="arithmatex">\(h(x)=\frac{M_y-N_x}{N}\)</span>$
+    &gt; 
+    &gt; is independent to <span class="arithmatex">\(y\)</span>. (dependent to <span class="arithmatex">\(x\)</span> alone)</p>
+<p>if neither of these condition were satisfied, the equation cannot be exact equation.</p>
+<p>otherwise, the equation can be multiplied by <span class="arithmatex">\(\mu\)</span> to become <strong>exact equation</strong>, and solve by the <a href="#solution+to+exact+equation">method</a> mentioned above.</p>
+<ol>
+<li>
+<blockquote>
+<div class="arithmatex">\[\mu(y)=e^{\int {h(y)dy}}\]</div>
+</blockquote>
+</li>
+</ol>
+<p>or</p>
+<ol>
+<li>
+<blockquote>
+<div class="arithmatex">\[\mu(x)=e^{\int {h(x)dx}}\]</div>
+</blockquote>
+</li>
+</ol>
+<p>see <a href="../minority/Proof%20to%20Modified%20EE/">proof</a>.</p>
+<h2 id="homogeneous+equation">homogeneous Equation<a class="headerlink" href="#homogeneous+equation" title="Permanent link">¶</a></h2>
+<p>There are two different definition of homogeneous equation.</p>
+<h3 id="homogeneous+linear+equation">homogeneous Linear Equation<a class="headerlink" href="#homogeneous+linear+equation" title="Permanent link">¶</a></h3>
+<p>The constant term of linear Equation is zero</p>
+<p>In 1<sup>st</sup> ODE case</p>
+<div class="arithmatex">\[y'+P(x)y=f(x)\]</div>
+<p>The equation is homogeneous if f(x) = 0</p>
+<p>see <a href="Higher%20Order%20DE#homogeneous%20Equations">further definition</a>.</p>
+<h3 id="homogeneous+1st+ode">homogeneous 1st ODE<a class="headerlink" href="#homogeneous+1st+ode" title="Permanent link">¶</a></h3>
+<p>以下兩種定義等價。</p>
+<ul>
+<li>
+<p><strong>ODE in <span class="arithmatex">\(y' = f(x,y)\)</span> form</strong></p>
+<p>The equation is homogeneous if </p>
+<div class="arithmatex">\[y'=f(x,y)=f(tx,ty)\]</div>
+</li>
+<li>
+<p><strong>ODE in <span class="arithmatex">\(Mdx + Ndy = 0\)</span> form</strong></p>
+<p>If <span class="arithmatex">\(M(x,y)\)</span> and <span class="arithmatex">\(N(x,y)\)</span> are homogeneous functions of <strong>the same degree</strong>, then the 1<sup>st</sup> ODE is <a href="../minority/Homogeneous%20Function/">homogeneous</a>.</p>
+</li>
+</ul>
+<p><br/></p>
+<p><strong>Quick Check Guide</strong> : sum of powers (指數之和)</p>
+<p><br/></p>
+<h3 id="solution+to+1st+ode">Solution to 1st ODE<a class="headerlink" href="#solution+to+1st+ode" title="Permanent link">¶</a></h3>
+<p>Set <span class="arithmatex">\(y=ux\)</span>, <span class="arithmatex">\(dy = udx +xdu\)</span>,</p>
+<p>then use <a href="#Separable+Variable+Method">separable variable method</a></p>
+<hr/>
+<h2 id="bernoullis+equations">Bernoulli's Equations<a class="headerlink" href="#bernoullis+equations" title="Permanent link">¶</a></h2>
+<p>aka 白努力 equation</p>
+<h3 id="standard+form_1">standard form<a class="headerlink" href="#standard+form_1" title="Permanent link">¶</a></h3>
+<div class="arithmatex">\[y'+P(x)y=f(x)\cdot y^n\]</div>
+<h3 id="solution">Solution<a class="headerlink" href="#solution" title="Permanent link">¶</a></h3>
+<p>Assume</p>
+<div class="arithmatex">\[u=y^{1-n}\]</div>
+<p>according to chain rule, we can write</p>
+<div class="arithmatex">\[\frac{dy}{dx}=\frac{1}{1-n} u^{\frac{n}{1-n}} \frac{du}{dx}\]</div>
+<p>代入 standard form</p>
+<div class="arithmatex">\[
+\begin{align}
+\frac{1}{1-n} u^{\frac{n}{1-n}} \frac{du}{dx} &amp;+ P(x)\cdot u^{\frac{1}{1-n}} &amp;= f(x)\cdot u^{\frac{n}{1-n}}
+\\
+\frac{du}{dx} &amp;+ P(x)(1-n)\cdot u &amp;= (1-n)f(x)
+\end{align}
+\]</div>
+<p>then use the <a href="#solving+method">method</a> of solving linear 1<sup>st</sup> ODE.</p>
+<hr/>
+<h2 id="ax++by++c">Ax + By + C<a class="headerlink" href="#ax++by++c" title="Permanent link">¶</a></h2>
+<p>If the 1<sup>st</sup> ODE has the form</p>
+<div class="arithmatex">\[\frac{dy}{dx} = f(Ax+By+C),\quad (B\neq 0)\]</div>
+<p>set <span class="arithmatex">\(u=Ax+By+C\)</span></p>
+<p>then</p>
+<div class="arithmatex">\[
+\begin{gather}
+du = Adx + Bdy\\
+\downarrow\\
+\frac{dy}{dx} = \frac{1}{B}\frac{du}{dx}-\frac{A}{B}\\
+\downarrow\\
+\frac{1}{B}\frac{du}{dx}-\frac{A}{B}=f(u)
+\end{gather}
+\]</div>
+<p>and solve it by any method above.</p>
+<div class="footnote">
+<hr/>
+<ol>
+<li id="fn:1">
+<p>singular points</p>
+<blockquote>
+<p><span class="arithmatex">\(\forall x\)</span>  s.t.</p>
+<div class="arithmatex">\[P(x)\rightarrow \infty \quad \text{or} \quad f(x) \rightarrow \infty\]</div>
+<p>singular points cannot be solution.</p>
+</blockquote>
+<p><a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">↩</a></p>
+</li>
+</ol>
+</div>
+</article>
+</div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+<div class="md-social">
+<a class="md-social__link" href="mailto:smark9005310@gmail.com" rel="noopener" target="_blank" title="">
+<svg viewbox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M536.4-26.3c9.8-3.5 20.6-1 28 6.3s9.8 18.2 6.3 28l-178 496.9c-5 13.9-18.1 23.1-32.8 23.1-14.2 0-27-8.6-32.3-21.7l-64.2-158c-4.5-11-2.5-23.6 5.2-32.6l94.5-112.4c5.1-6.1 4.7-15-.9-20.6s-14.6-6-20.6-.9l-112.4 94.3c-9.1 7.6-21.6 9.6-32.6 5.2L38.1 216.8c-13.1-5.3-21.7-18.1-21.7-32.3 0-14.7 9.2-27.8 23.1-32.8z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+<script src="../../javascripts/mathjax.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</body>
+</html>

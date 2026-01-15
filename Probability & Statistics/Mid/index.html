@@ -1,0 +1,2157 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../Distributions/" rel="prev"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.7.1" name="generator"/>
+<title>Mid - Bhbbbbb's Notes</title>
+<link href="../../assets/stylesheets/main.484c7ddc.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="deep-orange" data-md-color-primary="cyan" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#random+variable">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header md-header--shadow" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Bhbbbbb's Notes" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Bhbbbbb's Notes">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Bhbbbbb's Notes
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Mid
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="deep-orange" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="cyan" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="deep-orange" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="cyan" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"></path></svg>
+</label>
+</form>
+<script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/bhbbbbb/obsidian-publish" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+</div>
+<div class="md-source__repository">
+    bhbbbbb/obsidian-publish
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Bhbbbbb's Notes" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Bhbbbbb's Notes">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+    Bhbbbbb's Notes
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/bhbbbbb/obsidian-publish" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+</div>
+<div class="md-source__repository">
+    bhbbbbb/obsidian-publish
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+<span class="md-ellipsis">
+    
+  
+    Obsidian Notes
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../About%20Me/">
+<span class="md-ellipsis">
+    
+  
+    About Me
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Data%20Compression/">
+<span class="md-ellipsis">
+    
+  
+    Data Compression
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Linear_Algebra/">
+<span class="md-ellipsis">
+    
+  
+    Linear Algebra
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../test/">
+<span class="md-ellipsis">
+    
+  
+    Test
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Control Engineering
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Control Engineering
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Control%20Engineering/mid1/">
+<span class="md-ellipsis">
+    
+  
+    Mid1
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Control%20Engineering/mid2/">
+<span class="md-ellipsis">
+    
+  
+    Mid2
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_6_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_6_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Examples
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Control%20Engineering/examples/masion_rule_examples/">
+<span class="md-ellipsis">
+    
+  
+    Masion rule examples
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    DBMS
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    DBMS
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../DBMS/mid1/">
+<span class="md-ellipsis">
+    
+  
+    Mid1
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../DBMS/mid2/">
+<span class="md-ellipsis">
+    
+  
+    Mid2
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Data Compression
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Data Compression
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Data%20Compression/DataCompression/">
+<span class="md-ellipsis">
+    
+  
+    DataCompression
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_9" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Electromagnetics
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_9_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_9">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Electromagnetics
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Electromagnetics/Antenna/">
+<span class="md-ellipsis">
+    
+  
+    Antenna
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Electromagnetics/Boundary%20Value%20Problem/">
+<span class="md-ellipsis">
+    
+  
+    Boundary Value Problem
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Electromagnetics/EM_Wave/">
+<span class="md-ellipsis">
+    
+  
+    EM Wave
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Electromagnetics/Electrostatics/">
+<span class="md-ellipsis">
+    
+  
+    Electrostatics
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Electromagnetics/Magnetostatics/">
+<span class="md-ellipsis">
+    
+  
+    Magnetostatics
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Electromagnetics/Method%20of%20Images/">
+<span class="md-ellipsis">
+    
+  
+    Method of Images
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Electromagnetics/Transmission%20Line/">
+<span class="md-ellipsis">
+    
+  
+    Transmission Line
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Electromagnetics/Vector%20Calculus/">
+<span class="md-ellipsis">
+    
+  
+    Vector Calculus
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Electromagnetics/Wave%20Guide/">
+<span class="md-ellipsis">
+    
+  
+    Wave Guide
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_10" type="checkbox"/>
+<label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Electronics
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_10_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_10">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Electronics
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Electronics/Feedback/">
+<span class="md-ellipsis">
+    
+  
+    Feedback
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Electronics/Ouput%20Stage/">
+<span class="md-ellipsis">
+    
+  
+    Ouput Stage
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_11" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Engineering Math
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_11_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_11">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Engineering Math
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Engineering%20Math/1stODE/">
+<span class="md-ellipsis">
+    
+  
+    1stODE
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Engineering%20Math/Fourier%20Integral/">
+<span class="md-ellipsis">
+    
+  
+    Fourier Integral
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Engineering%20Math/Fourier%20Series/">
+<span class="md-ellipsis">
+    
+  
+    Fourier Series
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Engineering%20Math/Fourier%20Transform/">
+<span class="md-ellipsis">
+    
+  
+    Fourier Transform
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Engineering%20Math/Heat%20Equations/">
+<span class="md-ellipsis">
+    
+  
+    Heat Equation
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Engineering%20Math/Higher%20Order%20DE/">
+<span class="md-ellipsis">
+    
+  
+    Higher Order DE
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Engineering%20Math/Laplace%20Transform/">
+<span class="md-ellipsis">
+    
+  
+    Laplace Transform
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Engineering%20Math/Potential%20Equation/">
+<span class="md-ellipsis">
+    
+  
+    Potential Equation
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Engineering%20Math/Series%20Solution/">
+<span class="md-ellipsis">
+    
+  
+    Series Solution
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Engineering%20Math/Special%20Functions/">
+<span class="md-ellipsis">
+    
+  
+    Special Functions
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Engineering%20Math/Sturm-Liouville%20problem/">
+<span class="md-ellipsis">
+    
+  
+    Sturm-Liouville problem
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Engineering%20Math/Wave%20Equations/">
+<span class="md-ellipsis">
+    
+  
+    Wave Equation
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_11_13" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_13" id="__nav_11_13_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Minority
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_11_13_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_11_13">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Minority
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Engineering%20Math/minority/Homogeneous%20Function/">
+<span class="md-ellipsis">
+    
+  
+    Homogeneous Function
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Engineering%20Math/minority/IVP/">
+<span class="md-ellipsis">
+    
+  
+    IVP
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Engineering%20Math/minority/Proof%20to%20Modified%20EE/">
+<span class="md-ellipsis">
+    
+  
+    Proof to Modified EE
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Engineering%20Math/minority/Step%20Function/">
+<span class="md-ellipsis">
+    
+  
+    Step Function
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Engineering%20Math/minority/Wronskian/">
+<span class="md-ellipsis">
+    
+  
+    Wronskian
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Engineering%20Math/minority/proof2/">
+<span class="md-ellipsis">
+    
+  
+    Proof2
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_12" type="checkbox"/>
+<label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Linear Algebra
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_12_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_12">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Linear Algebra
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Linear%20Algebra/Linear_Algebra/">
+<span class="md-ellipsis">
+    
+  
+    Linear Algebra
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_13" type="checkbox"/>
+<label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Machine Learning
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_13_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_13">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Machine Learning
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Machine%20Learning/MPPP/">
+<span class="md-ellipsis">
+    
+  
+    MPPP
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Machine%20Learning/Machine%20Learning/">
+<span class="md-ellipsis">
+    
+  
+    Machine Learning
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Machine%20Learning/PCA/">
+<span class="md-ellipsis">
+    
+  
+    PCA
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Machine%20Learning/cheat/">
+<span class="md-ellipsis">
+    
+  
+    Cheat
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Machine%20Learning/consistency/">
+<span class="md-ellipsis">
+    
+  
+    Consistency
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Machine%20Learning/pylint/">
+<span class="md-ellipsis">
+    
+  
+    Pylint
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_14" type="checkbox"/>
+<label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    OS
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_14_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_14">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    OS
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../OS/Mid1/">
+<span class="md-ellipsis">
+    
+  
+    Mid1
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../OS/Mid2/">
+<span class="md-ellipsis">
+    
+  
+    Mid2
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../OS/Mid3/">
+<span class="md-ellipsis">
+    
+  
+    Mid3
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_15" type="checkbox"/>
+<label class="md-nav__link" for="__nav_15" id="__nav_15_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Probability &amp; Statistics
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_15_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_15">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Probability &amp; Statistics
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Distributions/">
+<span class="md-ellipsis">
+    
+  
+    Distributions
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    
+  
+    Mid
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    
+  
+    Mid
+  
+
+    
+  </span>
+</a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#random+variable">
+<span class="md-ellipsis">
+      
+        Random Variable
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#markovs+inequality">
+<span class="md-ellipsis">
+      
+        Markov's Inequality
+      
+    </span>
+</a>
+<nav aria-label="Markov's Inequality" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#proof">
+<span class="md-ellipsis">
+      
+        Proof
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#chebyshevs+inequality">
+<span class="md-ellipsis">
+      
+        Chebyshev's Inequality
+      
+    </span>
+</a>
+<nav aria-label="Chebyshev's Inequality" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#proof_1">
+<span class="md-ellipsis">
+      
+        Proof
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#law+of+large+number">
+<span class="md-ellipsis">
+      
+        Law of Large Number
+      
+    </span>
+</a>
+<nav aria-label="Law of Large Number" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#weak+law+of+large+number">
+<span class="md-ellipsis">
+      
+        Weak Law of Large Number
+      
+    </span>
+</a>
+<nav aria-label="Weak Law of Large Number" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#proof_2">
+<span class="md-ellipsis">
+      
+        Proof
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#central+limit+theorem">
+<span class="md-ellipsis">
+      
+        Central Limit Theorem
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#monte+carlo+approach">
+<span class="md-ellipsis">
+      
+        Monte Carlo Approach
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#acceptance-rejection+method">
+<span class="md-ellipsis">
+      
+        Acceptance-Rejection Method
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mm1+queue">
+<span class="md-ellipsis">
+      
+        MM1 queue
+      
+    </span>
+</a>
+<nav aria-label="MM1 queue" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#number+of+customers+in+system">
+<span class="md-ellipsis">
+      
+        Number of Customers in System
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#average+departure+rate">
+<span class="md-ellipsis">
+      
+        Average Departure Rate
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#waiting+time">
+<span class="md-ellipsis">
+      
+        Waiting Time
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sample+stats">
+<span class="md-ellipsis">
+      
+        Sample Stats.
+      
+    </span>
+</a>
+<nav aria-label="Sample Stats." class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sample+mean">
+<span class="md-ellipsis">
+      
+        Sample Mean
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#binomial+and+negative+binomial">
+<span class="md-ellipsis">
+      
+        Binomial and Negative Binomial
+      
+    </span>
+</a>
+<nav aria-label="Binomial and Negative Binomial" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#binomial+distribution">
+<span class="md-ellipsis">
+      
+        Binomial Distribution
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#negative+binomial+distribution">
+<span class="md-ellipsis">
+      
+        Negative Binomial Distribution
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#geometric+distribution">
+<span class="md-ellipsis">
+      
+        Geometric Distribution
+      
+    </span>
+</a>
+<nav aria-label="Geometric Distribution" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#generation+method">
+<span class="md-ellipsis">
+      
+        Generation Method
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#poisson+distribution">
+<span class="md-ellipsis">
+      
+        Poisson Distribution
+      
+    </span>
+</a>
+<nav aria-label="Poisson Distribution" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#generation+method_1">
+<span class="md-ellipsis">
+      
+        Generation Method
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#exponential+distribution">
+<span class="md-ellipsis">
+      
+        Exponential Distribution
+      
+    </span>
+</a>
+<nav aria-label="Exponential Distribution" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#generation+method_2">
+<span class="md-ellipsis">
+      
+        Generation Method
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#random+variable">
+<span class="md-ellipsis">
+      
+        Random Variable
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#markovs+inequality">
+<span class="md-ellipsis">
+      
+        Markov's Inequality
+      
+    </span>
+</a>
+<nav aria-label="Markov's Inequality" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#proof">
+<span class="md-ellipsis">
+      
+        Proof
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#chebyshevs+inequality">
+<span class="md-ellipsis">
+      
+        Chebyshev's Inequality
+      
+    </span>
+</a>
+<nav aria-label="Chebyshev's Inequality" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#proof_1">
+<span class="md-ellipsis">
+      
+        Proof
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#law+of+large+number">
+<span class="md-ellipsis">
+      
+        Law of Large Number
+      
+    </span>
+</a>
+<nav aria-label="Law of Large Number" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#weak+law+of+large+number">
+<span class="md-ellipsis">
+      
+        Weak Law of Large Number
+      
+    </span>
+</a>
+<nav aria-label="Weak Law of Large Number" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#proof_2">
+<span class="md-ellipsis">
+      
+        Proof
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#central+limit+theorem">
+<span class="md-ellipsis">
+      
+        Central Limit Theorem
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#monte+carlo+approach">
+<span class="md-ellipsis">
+      
+        Monte Carlo Approach
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#acceptance-rejection+method">
+<span class="md-ellipsis">
+      
+        Acceptance-Rejection Method
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mm1+queue">
+<span class="md-ellipsis">
+      
+        MM1 queue
+      
+    </span>
+</a>
+<nav aria-label="MM1 queue" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#number+of+customers+in+system">
+<span class="md-ellipsis">
+      
+        Number of Customers in System
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#average+departure+rate">
+<span class="md-ellipsis">
+      
+        Average Departure Rate
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#waiting+time">
+<span class="md-ellipsis">
+      
+        Waiting Time
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sample+stats">
+<span class="md-ellipsis">
+      
+        Sample Stats.
+      
+    </span>
+</a>
+<nav aria-label="Sample Stats." class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sample+mean">
+<span class="md-ellipsis">
+      
+        Sample Mean
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#binomial+and+negative+binomial">
+<span class="md-ellipsis">
+      
+        Binomial and Negative Binomial
+      
+    </span>
+</a>
+<nav aria-label="Binomial and Negative Binomial" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#binomial+distribution">
+<span class="md-ellipsis">
+      
+        Binomial Distribution
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#negative+binomial+distribution">
+<span class="md-ellipsis">
+      
+        Negative Binomial Distribution
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#geometric+distribution">
+<span class="md-ellipsis">
+      
+        Geometric Distribution
+      
+    </span>
+</a>
+<nav aria-label="Geometric Distribution" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#generation+method">
+<span class="md-ellipsis">
+      
+        Generation Method
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#poisson+distribution">
+<span class="md-ellipsis">
+      
+        Poisson Distribution
+      
+    </span>
+</a>
+<nav aria-label="Poisson Distribution" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#generation+method_1">
+<span class="md-ellipsis">
+      
+        Generation Method
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#exponential+distribution">
+<span class="md-ellipsis">
+      
+        Exponential Distribution
+      
+    </span>
+</a>
+<nav aria-label="Exponential Distribution" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#generation+method_2">
+<span class="md-ellipsis">
+      
+        Generation Method
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1>Mid</h1>
+<h2 id="random+variable">Random Variable<a class="headerlink" href="#random+variable" title="Permanent link">¶</a></h2>
+<ul>
+<li>The result of experiments (random events)</li>
+</ul>
+<h2 id="markovs+inequality">Markov's Inequality<a class="headerlink" href="#markovs+inequality" title="Permanent link">¶</a></h2>
+<ul>
+<li>for <span class="arithmatex">\(X \ge 0\)</span> and <span class="arithmatex">\(a &gt; 0\)</span></li>
+</ul>
+<div class="arithmatex">\[
+\begin{gather}
+P(X \ge a) \le \frac{E[X]}{a}
+\end{gather}
+\]</div>
+<h3 id="proof">Proof<a class="headerlink" href="#proof" title="Permanent link">¶</a></h3>
+<p>Define a lower bound r.v. <span class="arithmatex">\(Y\)</span>. That is</p>
+<div class="arithmatex">\[
+Y=
+\begin{dcases*}
+a &amp; if $X \ge a$
+\\\\
+0 &amp; if $0&lt; X &lt; a$
+\end{dcases*}
+\]</div>
+<p>thus, </p>
+<div class="arithmatex">\[
+\begin{gather}
+Y \le X
+\end{gather}
+\]</div>
+<p>then,</p>
+<div class="arithmatex">\[
+\begin{gather}
+E[X]\ge E[Y] = aP(X\ge a)
+\\\\
+\implies P(X\ge a) \le \frac{E[X]}{a}
+\end{gather}
+\]</div>
+<h2 id="chebyshevs+inequality">Chebyshev's Inequality<a class="headerlink" href="#chebyshevs+inequality" title="Permanent link">¶</a></h2>
+<ul>
+<li>for <span class="arithmatex">\(X\)</span> is r.v. having mean <span class="arithmatex">\(\mu\)</span> and variance <span class="arithmatex">\(\sigma^{2}\)</span>, then for <span class="arithmatex">\(k &gt; 0\)</span>,</li>
+</ul>
+<div class="arithmatex">\[
+\begin{gather}
+P\big(|X-\mu| \ge k\sigma\big) \le \frac{1}{k^{2}}
+\end{gather}
+\]</div>
+<h3 id="proof_1">Proof<a class="headerlink" href="#proof_1" title="Permanent link">¶</a></h3>
+<div class="arithmatex">\[
+\begin{gather}
+P\big(|X-\mu|\ge k\sigma\big)=P\big((X-\mu)^{2}\ge k^{2}\sigma^{2}\big)
+\end{gather}
+\]</div>
+<p>and by Markov's inequality, we now have,</p>
+<div class="arithmatex">\[
+\begin{gather}
+P\big(|X-\mu|\ge k\sigma\big)=P\big((X-\mu)^{2}\ge k^{2}\sigma^{2}\big) \le \frac{E\big[(X-\mu)^{2}\big]}{k^{2}\sigma^{2}}=\frac{1}{k^2}
+\end{gather}
+\]</div>
+<hr/>
+<h2 id="law+of+large+number">Law of Large Number<a class="headerlink" href="#law+of+large+number" title="Permanent link">¶</a></h2>
+<h3 id="weak+law+of+large+number">Weak Law of Large Number<a class="headerlink" href="#weak+law+of+large+number" title="Permanent link">¶</a></h3>
+<p>Let <span class="arithmatex">\(\bar{X}=\frac{1}{n}\sum\limits{X_i}\)</span>, and <span class="arithmatex">\(X_i\)</span> are i.i.d., and for any <span class="arithmatex">\(\epsilon &gt; 0\)</span></p>
+<div class="arithmatex">\[
+\begin{gather}
+P\bigg(|\bar X -\mu| \ge \epsilon\bigg) \to 0, \quad \text{when } n \to \infty
+\end{gather}
+\]</div>
+<h4 id="proof_2">Proof<a class="headerlink" href="#proof_2" title="Permanent link">¶</a></h4>
+<p>First of all,</p>
+<div class="arithmatex">\[
+\begin{gather}
+E[\bar X]=\mu
+\\\\
+\text{Var}(\bar X) = \frac{1}{n^{2}}\sum\limits_{i} \text{Var}(X_i) = \frac{\sigma^{2}}{n}
+\end{gather}
+\]</div>
+<ul>
+<li>since i.i.d., <span class="arithmatex">\(\text{Cov}(X_i, X_j) = 0\)</span></li>
+</ul>
+<p>then by Chebyshev's inequality,</p>
+<div class="arithmatex">\[
+\begin{gather}
+P\bigg(|\bar X \ge \mu | \ge k \frac{\sigma}{\sqrt n}\bigg) \le \frac{1}{k^{2}}
+\\\\
+\implies
+P\bigg(|\bar X \ge \mu | \ge \epsilon \bigg) \le \frac{\sigma^{2}}{n \epsilon ^{2}}
+\end{gather}
+\]</div>
+<h2 id="central+limit+theorem">Central Limit Theorem<a class="headerlink" href="#central+limit+theorem" title="Permanent link">¶</a></h2>
+<ul>
+<li>The sum of samples is also an normal distribution when <span class="arithmatex">\(n\to \infty\)</span>.</li>
+<li>The sample mean is normal distributed.</li>
+</ul>
+<p>Let <span class="arithmatex">\(X_1, X_2, \dots\)</span> be a sequence of i.i.d. random variables with mean <span class="arithmatex">\(\mu\)</span> and variance <span class="arithmatex">\(\sigma^{2}\)</span>. Then,</p>
+<div class="arithmatex">\[
+\begin{gather}
+\lim_{n\to \infty} P\left(\frac{\sum\limits{X_i}- n\mu}{\sigma\sqrt{n}} &lt; x\right)=\Phi(x)
+\end{gather}
+\]</div>
+<p>in which <span class="arithmatex">\(\Phi(x)\)</span> is cdf of standard normal distribution.</p>
+<h2 id="monte+carlo+approach">Monte Carlo Approach<a class="headerlink" href="#monte+carlo+approach" title="Permanent link">¶</a></h2>
+<div class="arithmatex">\[
+\begin{align}
+\theta &amp;= \int_0^{1}{g(x)dx}
+\\\\
+&amp;= E\big[g(U)\big]
+\\\\
+&amp;= \lim_{n\to \infty}{\frac{\sum\limits^{n} g(U_i)}{n}} 
+\end{align}
+\]</div>
+<h2 id="acceptance-rejection+method">Acceptance-Rejection Method<a class="headerlink" href="#acceptance-rejection+method" title="Permanent link">¶</a></h2>
+<p><img alt="" src="../_attachments/Pasted%20image%2020221106001959.png"/></p>
+<ul>
+<li>required</li>
+</ul>
+<div class="arithmatex">\[
+\begin{gather}
+\frac{f(y)}{c\,g(y)} \le 1
+\end{gather}
+\]</div>
+<p>To solve <span class="arithmatex">\(c\)</span>, find the maximum of <span class="arithmatex">\(\displaystyle {\frac{f(y)}{g(y)}}\)</span>. Then find <span class="arithmatex">\(y^{*}\)</span> such that</p>
+<div class="arithmatex">\[
+\begin{gather}
+y^{*} = \arg\max_y \frac{f(y)}{g(y)}
+\\\\
+c \ge \frac{f(y^{*})}{g(y^{*})} 
+\end{gather}
+\]</div>
+<p>Normally, we hope <span class="arithmatex">\(c\)</span> as small as possible (to make the rejection rate lower). Thus we could let</p>
+<div class="arithmatex">\[
+\begin{gather}
+\boxed{
+c=\frac{f(y^{*})}{g(y
+^{*})}
+}
+\end{gather}
+\]</div>
+<details class="- example">
+<summary>Standard Normal R.V. Example</summary>
+<ul>
+<li><strong>absolute</strong> value of Z</li>
+</ul>
+<div class="arithmatex">\[
+\begin{gather}
+f(x) = \frac{\mathbf 2}{\sqrt{2\pi}}e^{-x^{2}/2}
+\qquad 0 &lt; x &lt; \infty
+\end{gather}
+\]</div>
+<p>and let say <span class="arithmatex">\(Y\)</span> be exponential random variable with <span class="arithmatex">\(\lambda = 1\)</span></p>
+<div class="arithmatex">\[
+\begin{gather}
+g(x) = e^{- x}
+\end{gather}
+\]</div>
+<p>then,</p>
+<div class="arithmatex">\[
+\begin{gather}
+\frac{d}{dx}\frac{f(x)}{g(x)} = 0
+\\\\
+\implies
+\left(-x+1\right)\exp\left(-\frac{x^{2}}{2}+x\right) = 0
+\end{gather}
+\]</div>
+<p>thus</p>
+<div class="arithmatex">\[
+\begin{gather}
+c =\frac{f(1)}{g(1)} = \frac{\sqrt {2e}}{\sqrt\pi}
+\end{gather}
+\]</div>
+</details>
+<hr/>
+<h2 id="mm1+queue">MM1 queue<a class="headerlink" href="#mm1+queue" title="Permanent link">¶</a></h2>
+<p>First of all, with the entering rate <span class="arithmatex">\(\lambda\)</span> and exiting rate <span class="arithmatex">\(\mu\)</span>, we have the server utilization <span class="arithmatex">\(\rho\)</span></p>
+<div class="arithmatex">\[
+\begin{gather}
+\rho = \frac{\lambda}{\mu}
+\end{gather}
+\]</div>
+<p>and the server would be stable <em>iff</em> <span class="arithmatex">\(\lambda &lt; \mu\)</span> so that the <span class="arithmatex">\(\rho &lt; 1\)</span></p>
+<pre class="mermaid"><code>graph LR
+s0((0))
+s1((1))
+s2((2))
+sn-1((n-1))
+sn((n))
+sn+1((n+1))
+s0 --"&amp;lambda;"--&gt; s1
+s1 --"&amp;lambda;"--&gt; s2
+s1 --"&amp;mu;"--&gt; s0
+s2 --"&amp;mu;"--&gt; s1
+
+sn-1 --"&amp;lambda;"--&gt; sn
+sn --"&amp;lambda;"--&gt; sn+1
+sn --"&amp;mu;"--&gt; sn-1
+sn+1 --"&amp;mu;"--&gt; sn</code></pre>
+<p>The states transition graph have to follow the rule that the outgoing probability must be equal to ingoing probability. Thus it yields the following equations</p>
+<div class="arithmatex">\[
+\left\{
+\begin{gather}
+\lambda p_0 =\mu p_1
+\\\\
+(\lambda +\mu) p_n = \lambda p_{n-1} + \mu p_{n+1}
+\end{gather}\right.
+\]</div>
+<p>in which <span class="arithmatex">\(n \in ℕ\)</span>, and then we can get <span class="arithmatex">\(p_2\)</span> as</p>
+<div class="arithmatex">\[
+\begin{gather}
+(\lambda + \mu) p_1 = \lambda p_0 + \mu p_2
+\\\\
+\implies
+\lambda p_1 = \mu p_2
+\end{gather}
+\]</div>
+<p>Recursively, we would have</p>
+<div class="arithmatex">\[
+\begin{gather}
+p_n = \rho \,p_{n-1}
+\end{gather}
+\]</div>
+<p>and since we known that <span class="arithmatex">\(\displaystyle {\sum\limits_i{p_i}=1}\)</span>,</p>
+<div class="arithmatex">\[
+\begin{gather}
+\sum\limits_i{p_i}=p_0\sum\limits_i{\rho^{i}}
+=p_0\frac{1}{1-\rho} =1
+\\\\
+\implies p_0 = 1-\rho
+\\\\
+\implies p_n = (1-\rho)\rho^{n}
+\end{gather}
+\]</div>
+<p>and thus we know that the stable state probability of number of customers <span class="arithmatex">\(n\)</span> waiting in queue is a geometric random variable with failure times <span class="arithmatex">\(n\)</span>.</p>
+<h3 id="number+of+customers+in+system">Number of Customers in System<a class="headerlink" href="#number+of+customers+in+system" title="Permanent link">¶</a></h3>
+<div class="arithmatex">\[
+\begin{align}
+E[N] &amp;= \sum\limits_n{n\cdot p_n} 
+\\\\
+&amp;= (1-\rho)\sum\limits{n\rho^{n}}
+\\\\
+&amp;= (1-\rho)\sum\limits_{i=0}^{\infty}\sum\limits_{j=i}^{\infty}{\rho^{j}}
+\\\\
+&amp;= (1-\rho)\frac{\rho}{(1-\rho)^{2}}
+\\\\
+&amp;\boxed{
+= \frac{\rho}{1-\rho}
+}
+\end{align}
+\]</div>
+<h3 id="average+departure+rate">Average Departure Rate<a class="headerlink" href="#average+departure+rate" title="Permanent link">¶</a></h3>
+<div class="arithmatex">\[
+\begin{gather}
+E[N_D] = \mu\rho = \lambda
+\end{gather}
+\]</div>
+<h3 id="waiting+time">Waiting Time<a class="headerlink" href="#waiting+time" title="Permanent link">¶</a></h3>
+<ul>
+<li>overall time spent in system <span class="arithmatex">\(W\)</span></li>
+</ul>
+<div class="arithmatex">\[
+\begin{align}
+E[W]
+&amp;=\frac{E[N]}{E[N_D]}
+\\\\
+&amp;=\frac{E[N]}{\lambda}
+\\\\
+&amp;=\frac{E[N]/\mu}{\rho}
+\\\\
+&amp;\boxed{
+=\frac{1}{\mu(1-\rho)}
+}
+\end{align}
+\]</div>
+<ul>
+<li>time wait in queue <span class="arithmatex">\(W_q\)</span></li>
+</ul>
+<div class="arithmatex">\[
+\begin{align}
+E[W_q]
+&amp;=E[W]-\frac{1}{\mu}
+\\\\
+&amp;=\frac{1}{\mu(1-\rho)}- \frac{(1-\rho)}{\mu(1-\rho)}
+\\\\
+&amp;=\frac{\rho}{\mu(1-\rho)}
+\end{align}
+\]</div>
+<hr/>
+<h2 id="sample+stats">Sample Stats.<a class="headerlink" href="#sample+stats" title="Permanent link">¶</a></h2>
+<h3 id="sample+mean">Sample Mean<a class="headerlink" href="#sample+mean" title="Permanent link">¶</a></h3>
+<ul>
+<li>denotation<ul>
+<li><span class="arithmatex">\(\theta\)</span> – popluation mean</li>
+<li><span class="arithmatex">\(\sigma^{2}\)</span> – population variance</li>
+<li><span class="arithmatex">\(\bar X\)</span> – sample mean</li>
+</ul>
+</li>
+</ul>
+<div class="arithmatex">\[
+\begin{align}
+\theta &amp;= E[X_i]
+\\\\
+\sigma^{2} &amp;= \text{Var}(X_i)
+\\\\
+\bar X &amp;\equiv \sum\limits_{i=1}^{n}{\frac{X_i}{n}}
+\\\\
+E[\bar X] &amp;= E \left[\sum\limits_{i=1}^{n}{\frac{X_i}{n}}\right]
+\\\\
+&amp;= \frac{1}{n}E \left[\sum\limits_{i=1}^{n}{X_i}\right]
+\\\\
+&amp;= \frac{1}{n}n\theta = \theta
+\end{align}
+\]</div>
+<div class="arithmatex">\[
+\begin{align}
+E\left[\left(\bar X - \theta\right)^{2}\right] &amp;= \text{Var}(\bar X)
+\\\\
+&amp;= \text{Var}\left(\sum\limits_{i=1}^{n}{\frac{X_i}{n}}\right)
+\\\\
+&amp;= \frac{1}{n^{2}}\text{Var}\left(\sum\limits_{i=1}^{n}{X_i}\right)
+\\\\
+&amp;= \frac{1}{n^{2}}n\sigma^{2} =\frac{\sigma^{2}}{n}
+\end{align}
+\]</div>
+<hr/>
+<h2 id="binomial+and+negative+binomial">Binomial and Negative Binomial<a class="headerlink" href="#binomial+and+negative+binomial" title="Permanent link">¶</a></h2>
+<h3 id="binomial+distribution">Binomial Distribution<a class="headerlink" href="#binomial+distribution" title="Permanent link">¶</a></h3>
+<ul>
+<li>distribution of number of success <span class="arithmatex">\(r\)</span> given number of trails <span class="arithmatex">\(n\)</span></li>
+</ul>
+<div class="arithmatex">\[
+\begin{gather}
+P(X=r)=\binom{n}{r}p^{r}(1-p)^{n-r}
+\end{gather}
+\]</div>
+<h3 id="negative+binomial+distribution">Negative Binomial Distribution<a class="headerlink" href="#negative+binomial+distribution" title="Permanent link">¶</a></h3>
+<ul>
+<li>distribution of number of trails <span class="arithmatex">\(n\)</span> given number of success <span class="arithmatex">\(r\)</span><ul>
+<li>namely, distribution of number of failures <span class="arithmatex">\(k\)</span> given number of success <span class="arithmatex">\(r\)</span></li>
+</ul>
+</li>
+</ul>
+<div class="arithmatex">\[
+\begin{gather}
+P(X=n)=\binom{n-1}{r-1}p^{r}(1-p)^{n-r}
+\end{gather}
+\]</div>
+<h2 id="geometric+distribution">Geometric Distribution<a class="headerlink" href="#geometric+distribution" title="Permanent link">¶</a></h2>
+<ul>
+<li>number of trails <span class="arithmatex">\(n\)</span> until success</li>
+</ul>
+<div class="arithmatex">\[
+\begin{gather}
+P(X=n)=p(1-p)^{n-1}
+\end{gather}
+\]</div>
+<h3 id="generation+method">Generation Method<a class="headerlink" href="#generation+method" title="Permanent link">¶</a></h3>
+<ul>
+<li>CMF</li>
+</ul>
+<div class="arithmatex">\[
+\begin{gather}
+F(i) = \sum\limits_{n=1}^{i}{p\,q^{n-1}}=p\,\frac{1-q^{i-1}}{1-q}=1-q^{i-1}
+\end{gather}
+\]</div>
+<p>let</p>
+<div class="arithmatex">\[
+\begin{gather}
+U=G(i) = 1-F(i) = q^{i-1}
+\end{gather}
+\]</div>
+<p>thus</p>
+<div class="arithmatex">\[
+\begin{gather}
+i-1 = \log_qU
+\\\\
+\implies
+G^{-1}(U) = \lfloor {\log_{q}{U}} \rfloor + 1
+\end{gather}
+\]</div>
+<h2 id="poisson+distribution">Poisson Distribution<a class="headerlink" href="#poisson+distribution" title="Permanent link">¶</a></h2>
+<ul>
+<li><span class="arithmatex">\(\text{Pois}(\lambda)\)</span></li>
+<li>Considering events occur with rate <span class="arithmatex">\(r\)</span>, with time interval <span class="arithmatex">\(t\)</span>, there would be average number of events <span class="arithmatex">\(rt\)</span> per interval.<ul>
+<li>say that <span class="arithmatex">\(\lambda = rt\)</span>, expected rate of occurrences</li>
+<li>Split the time interval <span class="arithmatex">\(t\)</span> in to <span class="arithmatex">\(N\)</span> pieces and make the sub-interval <span class="arithmatex">\(t'\)</span> very small(i.e. <span class="arithmatex">\(N\)</span> very large).</li>
+<li><span class="arithmatex">\(t' = t/N \text{ where } N \to \infty\quad \text{then } \quad r\,t' \ll 1\)</span><br/></li>
+<li>if <span class="arithmatex">\(rt' \ll 1\)</span>, it approximates to do one Bernoulli trails in each time interval <span class="arithmatex">\(t'\)</span>.</li>
+<li><span class="arithmatex">\(\text{Pois}(\lambda) \equiv B(n=N,\, p=rt'=\lambda/N)\equiv B(n \to \infty, p \to 0)\)</span></li>
+</ul>
+</li>
+<li><span class="arithmatex">\(E_{X\sim Pois}\big[X\big] = \lambda = np = rt\)</span></li>
+<li><span class="arithmatex">\(X \sim \text{Pois}(\lambda )\)</span>, indicates <span class="arithmatex">\(X\)</span> is the number of events occurs in <strong>unit</strong> time interval (and the event rate is <span class="arithmatex">\(\lambda\)</span>).</li>
+</ul>
+<div class="arithmatex">\[
+\begin{align}
+P\{X=i\} &amp;= \binom{n}{i}p^{i}\,(1-p)^{n-i}
+\\\\
+&amp;= \binom{\cancel{n}}{i} \frac{\lambda ^{i}}{\cancel {n^{i}}}\,(1-p)^{n-i}
+\\\\
+&amp;= \frac{\lambda^{i}}{i!}(1-p)^{n-i}
+\\\\
+&amp;= \frac{\lambda^{i}}{i!}(e^{-p})^{n}
+\\\\
+&amp;= \frac{\lambda^{i}}{i!}e^{-\lambda}
+\end{align}
+\]</div>
+<div class="admonition hint">
+<p class="admonition-title">hint</p>
+<div class="arithmatex">\[
+\begin{align}
+\lim_{x\to0}e^{x}=e^{0}\left(1+\frac{x}{1!}+\frac{x^{2}}{2!}\right)\approx1+x
+\end{align}
+\]</div>
+</div>
+<h3 id="generation+method_1">Generation Method<a class="headerlink" href="#generation+method_1" title="Permanent link">¶</a></h3>
+<ol>
+<li>Generate several exponential random variable <span class="arithmatex">\(E_i \sim \text{Exp}(\lambda )\)</span></li>
+<li>until <span class="arithmatex">\(E_1 +E_2 + \cdots + E_i \ge 1 &gt;E_1 + E_2 + \cdots + E_{i-1}\)</span></li>
+</ol>
+<hr/>
+<h2 id="exponential+distribution">Exponential Distribution<a class="headerlink" href="#exponential+distribution" title="Permanent link">¶</a></h2>
+<ul>
+<li>time between events in Poisson process</li>
+<li>
+<p>continuous analogue of the <strong>geometric distribution</strong>.</p>
+</li>
+<li>
+<p><strong>CDF</strong></p>
+<ul>
+<li>take <span class="arithmatex">\(Y \sim \text{Pois}(\lambda )\)</span></li>
+<li>split unit time interval to <span class="arithmatex">\(1/N\)</span>, where <span class="arithmatex">\(N\)</span> is large</li>
+<li>then <span class="arithmatex">\(p=\lambda /N\)</span></li>
+</ul>
+</li>
+</ul>
+<div class="arithmatex">\[
+\begin{gather}
+P(X \ge k) = (1-p)^{kN} = e^{-kNp} = e^{-\lambda k}
+\\\\
+F(x) = 1-P(X\ge x) = 1- e^{-\lambda x}
+\end{gather}
+\]</div>
+<ul>
+<li><strong>PDF</strong></li>
+</ul>
+<div class="arithmatex">\[
+\begin{gather}
+f(x) = F'(x) = e^{-\lambda x}
+\end{gather}
+\]</div>
+<h3 id="generation+method_2">Generation Method<a class="headerlink" href="#generation+method_2" title="Permanent link">¶</a></h3>
+<p>Since,</p>
+<div class="arithmatex">\[
+\begin{gather}
+F(x) = 1 - e^{-\lambda x }
+\\\\
+\implies
+F^{-1}(U) = \frac{\ln (1-U)}{-\lambda}
+\end{gather}
+\]</div>
+<p>identically,</p>
+<div class="arithmatex">\[
+\begin{gather}
+F^{-1}(U) = F^{-1}(1-U) = -\frac{1}{\lambda}\ln U
+\end{gather}
+\]</div>
+<hr/>
+</article>
+</div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+<div class="md-social">
+<a class="md-social__link" href="mailto:smark9005310@gmail.com" rel="noopener" target="_blank" title="">
+<svg viewbox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M536.4-26.3c9.8-3.5 20.6-1 28 6.3s9.8 18.2 6.3 28l-178 496.9c-5 13.9-18.1 23.1-32.8 23.1-14.2 0-27-8.6-32.3-21.7l-64.2-158c-4.5-11-2.5-23.6 5.2-32.6l94.5-112.4c5.1-6.1 4.7-15-.9-20.6s-14.6-6-20.6-.9l-112.4 94.3c-9.1 7.6-21.6 9.6-32.6 5.2L38.1 216.8c-13.1-5.3-21.7-18.1-21.7-32.3 0-14.7 9.2-27.8 23.1-32.8z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+<script src="../../javascripts/mathjax.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</body>
+</html>
